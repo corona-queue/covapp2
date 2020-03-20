@@ -4,11 +4,12 @@ Notizen in Vorbereitung auf den WirVsVirus Hackathon zur Weiterentwicklung von [
 
 Content:
 1. [Konzept](./doc/konzept.md)
-2. [Möglicher Tech Stack](./doc/tech_stack.md)
-3. [Offene Fragen](./doc/offene_fragen.md)
-4. [Ausblick](./doc/ausblick.md)
-5. [Ressourcen](./doc/ressourcen.md)
-6. [Credit](./doc/credit.md)
+2. [Eingereichte Herausforderung](./doc/herausforderung.pdf)
+3. [Möglicher Tech Stack](./doc/tech_stack.md)
+4. [Offene Fragen](./doc/offene_fragen.md)
+5. [Ausblick](./doc/ausblick.md)
+6. [Ressourcen](./doc/ressourcen.md)
+7. [Credit](./doc/credit.md)
 
 Tasks:
 
