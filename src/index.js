@@ -16,11 +16,19 @@ import EndPage from "views/EndPage/EndPage.js";
 const browserHistory = createBrowserHistory();
 const history = syncHistoryWithStore(browserHistory, routerStore);
 
+class RedirectToFirstQuestion extends React.Component {
+  componentDidMount() {
+    history.push('/test/0');
+  }
+  render () { return null; }
+};
+
 ReactDOM.render(
   <Router history={history}>
     <Switch>
       <Route path="/end" component={EndPage} />
       <Route path="/test/:question" component={QuestionnairePage} />
+      <Route path="/test" component={RedirectToFirstQuestion} />
       <Route path="/results" component={TestResultsPage} />
       <Route path="/" component={StartPage} />
     </Switch>
