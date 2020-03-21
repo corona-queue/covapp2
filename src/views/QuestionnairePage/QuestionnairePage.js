@@ -48,10 +48,8 @@ export default function QuestionnairePage(props) {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
-          <Questionnaire />
-        </div>
+      <div className={classes.raised}>
+        <Questionnaire />
       </div>
       <Footer />
     </div>

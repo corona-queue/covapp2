@@ -14,36 +14,30 @@ import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import {observer} from "mobx-react";
+import { observer } from "mobx-react";
 
 import QuestionTreeStoreContext from "../../stores/questions";
 
-import styles from "assets/jss/material-kit-react/views/testWizardPage.js";
-
+import styles from "assets/jss/material-kit-react/views/questionnairePage.js";
 
 const useStyles = makeStyles(styles);
 
 class BaseTestResultsPage extends React.Component {
   componentDidMount() {
-    const { store } = this.props;
+    const { store } = this.props;
     store.submitAnswers();
   }
 
   render() {
-    const { store } = this.props;
+    const { store } = this.props;
     return (
-        <div>
-        {store.isSubmitting &&
-            <p>Is loading...</p>
-        }
-        {!store.isSubmitting &&
-            <p>Done!</p>
-        }
-        </div>
-    )
+      <div>
+        {store.isSubmitting && <p>Is loading...</p>}
+        {!store.isSubmitting && <p>Done!</p>}
+      </div>
+    );
   }
 }
-
 
 const TestResultsPage = observer(BaseTestResultsPage);
 

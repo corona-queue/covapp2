@@ -3,14 +3,15 @@ import { createContext } from "react";
 import { get } from "./api";
 
 class QuestionTreeStore {
-  questions = {};
+  questions = [];
   answers = {};
   name = "Michael";
   loading = false;
   isSubmitting = false;
+  question = 0;
 
-  setPage(page) {
-    this.page = page;
+  setQuestion(question) {
+    this.question = question;
   }
 
   loadQuestions(page) {
@@ -24,14 +25,12 @@ class QuestionTreeStore {
   submitAnswers() {
     this.isSubmitting = true;
 
-    setTimeout(
-      () => {
-        runInAction(() => {
-          console.log("Submitting answers");
-          this.isSubmitting = false;
-        });
-      }, 2000
-    )
+    setTimeout(() => {
+      runInAction(() => {
+        console.log("Submitting answers");
+        this.isSubmitting = false;
+      });
+    }, 2000);
   }
 }
 
@@ -43,6 +42,7 @@ decorate(QuestionTreeStore, {
   setPage: action,
   loadQuestions: action,
   submitAnswers: action,
+  setQuestions: action
 });
 
 export default createContext(new QuestionTreeStore());

@@ -3,6 +3,7 @@ import { useObserver } from "mobx-react-lite";
 import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
+import Question from "./Question";
 
 import QuestionsStore from "../../../stores/questions";
 import styles from "./styles";
@@ -33,19 +34,13 @@ const Test = () => {
           </Grid>
         </Grid>
       )}
-      {!store.loading && (
-        <Grid
-          container
-          direction="column"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-        >
-          <Grid item>Question</Grid>
-          <Grid item>
-            <CircularProgress />
-          </Grid>
-        </Grid>
+      {!store.loading && store.questions.length > 0 && (
+        <Question
+          question={store.questions[0]}
+          answer={answer => {
+            store.setQuestion(1);
+          }}
+        />
       )}
     </div>
   ));
