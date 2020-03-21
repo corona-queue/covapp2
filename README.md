@@ -22,6 +22,7 @@ Based on [CovApp](https://covapp.charite.de/).
     * Erweiterungsmöglichkeit: Scheduling
 
 ## TODOs
+* Fragen mit Daten rendern
 * Fortschritt bei Fragebogen
 * Kontrast erhöhen (hellgrauer kleiner Text)
 * Alles einheitlich stylen (fonts, PageSetup)

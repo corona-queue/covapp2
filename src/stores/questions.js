@@ -1,8 +1,7 @@
 import { observable, action, decorate, runInAction, computed } from "mobx";
 import { createContext } from "react";
-import { get } from "./api";
+import { getQuestions, getResults } from "./api";
 import routerStore from "./router";
-
 
 class QuestionTreeStore {
   questions = [];
@@ -11,6 +10,10 @@ class QuestionTreeStore {
   loading = false;
   isSubmitting = false;
   question = 0;
+
+  // getting results
+  results = null;
+  loadingResults = false;
 
   constructor(routerStore) {
     this.routerStore = routerStore;
@@ -47,21 +50,38 @@ class QuestionTreeStore {
     } else {
       if (Array.isArray(nextQuestions)) {
         nextQuestionId = nextQuestions[selectedOptionIndex];
-      } else { // single string id
+      } else {
+        // single string id
         nextQuestionId = nextQuestions;
       }
       questionParam = this.getQuestionIndexById(nextQuestionId);
     }
-    
+
     this.routerStore.history.push(`/test/${questionParam}`);
   }
 
   loadQuestions(page) {
     this.loading = true;
-    get("").then(questions => {
+    getQuestions().then(questions => {
       this.questions = questions;
       this.loading = false;
     });
+  }
+
+  get requestBody() {
+    return { q01: "q01_option2", q02: "q02_option1" };
+  }
+
+  loadResults() {
+    this.loadingResults = true;
+    getResults(this.requestBody)
+      .then(results => {
+        this.results = results;
+        this.loadingResults = false;
+      })
+      .catch(() => {
+        this.loadingResults = false;
+      });
   }
 
   submitAnswers() {
@@ -82,12 +102,16 @@ decorate(QuestionTreeStore, {
   loading: observable,
   question: observable,
   isSubmitting: observable,
+  results: observable,
+  loadingResults: observable,
   currentQuestion: computed,
+  requestBody: computed,
   setPage: action,
   loadQuestions: action,
   submitAnswers: action,
   setQuestions: action,
-  nextQuestion: action
+  nextQuestion: action,
+  loadResults: action
 });
 
 export default createContext(new QuestionTreeStore(routerStore));
