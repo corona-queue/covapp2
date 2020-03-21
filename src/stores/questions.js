@@ -1,4 +1,4 @@
-import { observable, action, decorate, runInAction } from "mobx";
+import { observable, action, decorate, runInAction, computed } from "mobx";
 import { createContext } from "react";
 import { get } from "./api";
 
@@ -14,8 +14,35 @@ class QuestionTreeStore {
     this.question = question;
   }
 
-  answer(question, option) {
-    console.log(question, option);
+  get currentQuestion() {
+    return this.questions[this.question];
+  }
+
+  getQuestionIndexById(id) {
+    for (var i = 0; i < this.questions.length; i++) {
+      if (this.questions[i].id == id) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  nextQuestion(selectedOptionIndex) {
+    const currentQuestion = this.questions[this.question];
+    const nextQuestions = currentQuestion.nextQuestionMap;
+    let nextQuestionId;
+
+    if (nextQuestions == null) {
+      this.question++;
+    } else {
+      if (Array.isArray(nextQuestions)) {
+        nextQuestionId = nextQuestions[selectedOptionIndex];
+      } else { // single string id
+        nextQuestionId = nextQuestions;
+      }
+      this.question = this.getQuestionIndexById(nextQuestionId);
+    }
+    console.log(this.questions[this.question].id);
   }
 
   loadQuestions(page) {
@@ -43,10 +70,12 @@ decorate(QuestionTreeStore, {
   answers: observable,
   loading: observable,
   isSubmitting: observable,
+  currentQuestion: computed,
   setPage: action,
   loadQuestions: action,
   submitAnswers: action,
-  setQuestions: action
+  setQuestions: action,
+  nextQuestion: action
 });
 
 export default createContext(new QuestionTreeStore());

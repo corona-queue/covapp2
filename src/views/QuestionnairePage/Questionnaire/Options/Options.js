@@ -15,7 +15,7 @@ import styles from "./styles.js";
 
 const useStyles = makeStyles(styles);
 
-const Option = ({ options, value, answer }) => {
+const Option = ({ options, value, onSelectOption }) => {
   const classes = useStyles();
 
   return (
@@ -25,7 +25,7 @@ const Option = ({ options, value, answer }) => {
       justify="space-around"
       alignItems="space-around"
     >
-      {options.map(({ text, id }) => {
+      {options.map(({ text, id }, index) => {
         var Icon = {
           answer_yes: CheckCircleOutlineIcon,
           answer_no: HighlightOffIcon
@@ -41,7 +41,7 @@ const Option = ({ options, value, answer }) => {
             className={classNames(classes.root, {
               [classes.selected]: selected
             })}
-            onClick={() => answer(id)}
+            onClick={() => onSelectOption(index)}
           >
             <span className={classes.wrapper}>
               <Icon fontSize="large" />

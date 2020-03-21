@@ -15,7 +15,7 @@ const useStyles = makeStyles(styles);
 
 const Question = ({
   question: { text: headline, options, inputType, id },
-  answer,
+  onSelectOption,
   currentAnswer
 }) => {
   const classes = useStyles();
@@ -36,7 +36,7 @@ const Question = ({
               <Options
                 inputType={inputType}
                 options={options}
-                answer={optionId => answer(id, optionId)}
+                onSelectOption={optionIndex => onSelectOption(optionIndex)}
                 value={currentAnswer}
               />
             </CardBody>

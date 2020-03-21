@@ -36,9 +36,9 @@ const Test = () => {
       )}
       {!store.loading && store.questions.length > 0 && (
         <Question
-          question={store.questions[0]}
-          answer={(question, option) => {
-            store.answer(question, option);
+          question={store.currentQuestion}
+          onSelectOption={optionIndex => {
+            store.nextQuestion(optionIndex);
           }}
         />
       )}
