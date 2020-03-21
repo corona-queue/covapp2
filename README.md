@@ -11,12 +11,11 @@ Based on [CovApp](https://covapp.charite.de/).
 
 
 ## TODOs
-* Liste mit Teststellen in Berlin (https://www.berlin.de/special/gesundheit-und-beauty/gesundheit/6100254-210-coronavirus-untersuchungsstellen-in-berl.html)
-  * ~~Liste erstellen und rendern~~
-  * Dropdown mit Name und Öffnungszeiten
-  * Termin vereinbaren
 * Einzelroute hübsch machen und verallgemeinern
 * EndSection in neue Route
+* Liste mit Teststellen in Berlin (https://www.berlin.de/special/gesundheit-und-beauty/gesundheit/6100254-210-coronavirus-untersuchungsstellen-in-berl.html)
+  * ~~Liste erstellen und rendern~~
+  * Termin vereinbaren
 
 * Kontakt aufnehmen (REST service, verschiedene Stellen sollten möglich sein)
 * Kontaktaufnahme Dialog (Daten reviewen)

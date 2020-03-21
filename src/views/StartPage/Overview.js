@@ -13,8 +13,6 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
-//ownComponent
-import Test from "../Questionnaire";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
@@ -83,7 +81,6 @@ export default function ProductSection() {
             </Button>
           </GridItem>
         </GridContainer>
-        <Test />
       </div>
     </div>
   );

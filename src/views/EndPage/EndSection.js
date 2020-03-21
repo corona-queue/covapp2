@@ -18,10 +18,10 @@ import labs from "data/labs.js";
 
 const useStyles = makeStyles(styles);
 
-export default function ProductSection() {
+export default function EndSection() {
   const classes = useStyles();
   return (
-    <div className={classes.section}>
+    <div className={classes.small}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Wie geht es weiter?</h2>
