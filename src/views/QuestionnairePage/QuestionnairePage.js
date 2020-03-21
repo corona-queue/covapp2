@@ -14,15 +14,15 @@ import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import styles from "assets/jss/material-kit-react/views/testWizardPage.js";
+import styles from "assets/jss/material-kit-react/views/questionnairePage.js";
 
-import Test from "../Components/Test";
+import Questionnaire from "../Components/Questionnaire";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function TestWizardPage(props) {
+export default function QuestionnairePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -34,12 +34,12 @@ export default function TestWizardPage(props) {
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
-          height: 400,
+          height: 100,
           color: "white"
         }}
         {...rest}
       />
-      <Parallax small={true} image={require("assets/img/landing-bg.jpg")}>
+      <Parallax small filter image={require("assets/img/landing-bg.jpg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
@@ -50,7 +50,7 @@ export default function TestWizardPage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <Test />
+          <Questionnaire />
         </div>
       </div>
       <Footer />

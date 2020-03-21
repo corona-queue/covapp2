@@ -14,7 +14,7 @@ import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 //ownComponent
-import Test from "../Test";
+import Test from "../Questionnaire";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 

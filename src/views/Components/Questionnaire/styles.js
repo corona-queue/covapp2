@@ -1,9 +1,11 @@
 const styles = theme => ({
   root: {
-    color: "#000000"
+    color: "#000000",
+    margin: theme.spacing(2)
   },
   loadingContainer: {
-    flexDirection: "cloumn",
+    flexDirection: "column",
+    justifyContent: "center",
     "& > *": {
       margin: theme.spacing(2)
     }
