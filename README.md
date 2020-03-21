@@ -11,7 +11,6 @@ Based on [CovApp](https://covapp.charite.de/).
 
 
 ## TODOs
-* Nicht genutzte views verschieben
 * Liste mit Teststellen in Berlin (https://www.berlin.de/special/gesundheit-und-beauty/gesundheit/6100254-210-coronavirus-untersuchungsstellen-in-berl.html)
   * ~~Liste erstellen und rendern~~
   * Dropdown mit Name und Öffnungszeiten
