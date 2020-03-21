@@ -1,6 +1,7 @@
-import { observable, action, decorate, runInAction } from "mobx";
+import { observable, action, decorate, runInAction, computed } from "mobx";
 import { createContext } from "react";
 import { get } from "./api";
+import routerStore from "./router";
 
 class QuestionTreeStore {
   questions = [];
@@ -10,15 +11,18 @@ class QuestionTreeStore {
   isSubmitting = false;
   question = 0;
 
-  setQuestion(question) {
-    this.question = question;
+  constructor(routerStore) {
+    this.routerStore = routerStore;
   }
 
-<<<<<<< HEAD
-  answer(question, option) {
-    console.log(question, option);
-=======
+  setQuestion(question) {
+    this.question = parseInt(question);
+  }
+
   get currentQuestion() {
+    if (this.questions.length == 0) {
+      return null;
+    }
     return this.questions[this.question];
   }
 
@@ -69,7 +73,6 @@ class QuestionTreeStore {
     } while (pointer && i > 0);
     console.log(JSON.stringify(openQuestions));
     return openQuestions;
->>>>>>> 0899206... cool question flow
   }
 
   loadQuestions() {
@@ -96,17 +99,16 @@ decorate(QuestionTreeStore, {
   questions: observable,
   answers: observable,
   loading: observable,
+  question: observable,
   isSubmitting: observable,
-<<<<<<< HEAD
-=======
   currentQuestion: computed,
   openQuestions: computed,
->>>>>>> 0899206... cool question flow
   setPage: action,
   answer: action,
   loadQuestions: action,
   submitAnswers: action,
-  setQuestions: action
+  setQuestions: action,
+  nextQuestion: action
 });
 
-export default createContext(new QuestionTreeStore());
+export default createContext(new QuestionTreeStore(routerStore));

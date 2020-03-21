@@ -1,22 +1,30 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
 import LocationOn from "@material-ui/icons/LocationOn";
+import CalendarToday from "@material-ui/icons/CalendarToday";
 import PhoneCallback from "@material-ui/icons/PhoneCallback";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 
+import ContactInformation from "views/components/ContactInformation/ContactInformation";
+
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import endSectionStyles from "./endSectionStyle";
 
 import labs from "data/labs.js";
+import QRCode from "qrcode.react";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles({ ...styles, ...endSectionStyles });
 
 export default function EndSection() {
   const classes = useStyles();
@@ -32,6 +40,20 @@ export default function EndSection() {
         </GridItem>
       </GridContainer>
       <div>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
+            <h5 className={classes.title}>
+              Vervollständige deine Informationen
+            </h5>
+            <p className={classes.description}>
+              Gib deine Kontaktinforationen für den Rückrufservice an. Außerdem
+              sind diese Informationen teil der Daten, die du an ein Labor
+              übertragen kannst, um einen reibungslosen Testablauf zu
+              ermöglichen.
+            </p>
+            <ContactInformation />
+          </GridItem>
+        </GridContainer>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <h5 className={classes.title}>
@@ -53,9 +75,13 @@ export default function EndSection() {
             <p className={classes.description}>
               Wenn du von deinem Arzt oder offiziellen Stellen an kein
               bestimmtes Labor vermittelt wurdest, findest du hier eine Liste
-              von Teststätten, bei denen du einen Termin anfragen kannst.
+              von Teststätten, bei denen du einen Termin anfragen kannst.{" "}
+              <b>
+                Vereinbare nur einen Termin, wenn du eine entsprechende
+                Einschätzung von offizieller Seite bekommen hast.
+              </b>
             </p>
-            {labs.map(renderLab)}
+            {labs.map(lab => renderLab(lab, classes))}
           </GridItem>
         </GridContainer>
         <GridContainer justify="center">
@@ -68,7 +94,9 @@ export default function EndSection() {
               Daten mitbringen und direkt mit dem folgenden QR Code auslesen
               lassen. Mach dir am besten einen Screenshot.
             </p>
-            <p style={{ color: "red" }}>QR Code</p>
+            <p>
+              <QRCode value="<PATIENT><A>1</A><B>2</B><C>2</><D>2</D><E>2</E><Q>2</Q><R>2</R><T>2</T><U>2</U><W>2</W><X>2</X><Y>2</Y><Z>1</Z><A0>2</A0><A1>2</A1><A2>2</A2><A3>2</A3><B7>1</B7><B9>20200302</B9><A5>2</A5><A6>2</A6><A7>2</A7><A8>2</A8><A9>2</A9><B0>2</B0><B1>2</B1><B2>2</B2><B3>2</B3></PATIENT>" />
+            </p>
           </GridItem>
         </GridContainer>
         <GridContainer justify="center">
@@ -89,18 +117,28 @@ export default function EndSection() {
   );
 }
 
-const renderLab = lab => {
+const renderLab = (lab, classes) => {
   return (
-    <div>
-      <p>
+    <ExpansionPanel>
+      <ExpansionPanelSummary expandIcon={<ExpandMore />}>
         <b>{lab.location}</b>
-        <br />
-        {lab.name}
-        <br />
-        {lab.address}
-        <br />
-        {lab.open}
-      </p>
-    </div>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <div className={classes.labContainer}>
+          <div className={classes.labDescription}>
+            <b>Intitut</b>: {lab.name}
+            <br />
+            <b>Adresse</b>: {lab.address}
+            <br />
+            <b>Öffnungszeiten</b>: {lab.open}
+          </div>
+          <div>
+            <Button type="button" color="standard">
+              <CalendarToday /> Termin anfragen
+            </Button>
+          </div>
+        </div>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   );
 };

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import QuestionTreeStoreContext from "../../stores/questions";
-import EndSection from "../EndPage/EndSection.js";
+import NextStepsSection from "../EndPage/NextStepsSection.js";
 import styles from "../QuestionnairePage/Questionnaire/styles";
 
 const useStyles = makeStyles(styles);
@@ -35,7 +35,7 @@ class BaseTestResultsPage extends React.Component {
           )}
           {!store.isSubmitting && (
             <Grid item>
-              <EndSection />
+              <NextStepsSection />
             </Grid>
           )}
         </Grid>

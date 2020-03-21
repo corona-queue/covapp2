@@ -1,11 +1,13 @@
 import React from "react";
 import PageSetup from "views/PageSetup";
-import EndSection from "./EndSection";
+import ResultSection from "./ResultSection";
+import NextStepsSection from "./NextStepsSection";
 
 export default props => {
   return (
     <PageSetup>
-      <EndSection />
+      <ResultSection />
+      <NextStepsSection />
     </PageSetup>
   );
 };

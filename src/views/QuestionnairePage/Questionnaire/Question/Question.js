@@ -15,7 +15,7 @@ const useStyles = makeStyles(styles);
 
 const Question = ({
   question: { text: headline, options, inputType, id },
-  answer,
+  onSelectOption,
   currentAnswer
 }) => {
   const classes = useStyles();
