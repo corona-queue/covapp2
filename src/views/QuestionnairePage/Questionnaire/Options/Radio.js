@@ -15,7 +15,7 @@ import styles from "./styles.js";
 
 const useStyles = makeStyles(styles);
 
-const Option = ({ options, value, onSelectOption }) => {
+const Radio = ({ options, value, onSelectOption }) => {
   const classes = useStyles();
 
   return (
@@ -54,4 +54,4 @@ const Option = ({ options, value, onSelectOption }) => {
   );
 };
 
-export default Option;
+export default Radio;

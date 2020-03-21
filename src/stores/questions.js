@@ -45,7 +45,7 @@ class QuestionTreeStore {
     let nextQuestionId;
     let questionParam;
 
-    if (nextQuestions == null) {
+    if (nextQuestions == null || selectedOptionIndex == null) {
       questionParam = this.question + 1;
     } else {
       if (Array.isArray(nextQuestions)) {
@@ -57,7 +57,20 @@ class QuestionTreeStore {
       questionParam = this.getQuestionIndexById(nextQuestionId);
     }
 
-    this.routerStore.history.push(`/test/${questionParam}`);
+    let isDone = questionParam >= this.questions.length;
+    if (isDone) {
+      this.routeToResults();
+    } else {
+      this.routeTo(questionParam);
+    }
+  }
+
+  routeToQuestion(question) {
+    this.routerStore.history.push(`/test/${question}`);
+  }
+
+  routeToResults() {
+    this.routerStore.history.push(`/results`);
   }
 
   loadQuestions(page) {
