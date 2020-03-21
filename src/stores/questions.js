@@ -45,6 +45,7 @@ class QuestionTreeStore {
 
   get openQuestions() {
     var openQuestions = [];
+
     if (this.questions.length === 0) return openQuestions;
 
     //traversier den Baum und gib alle möglichen Fragen zurück, mit der aktuellen Fragekette
@@ -71,7 +72,6 @@ class QuestionTreeStore {
         i = 0;
       }
     } while (pointer && i > 0);
-    console.log(JSON.stringify(openQuestions));
     return openQuestions;
   }
 

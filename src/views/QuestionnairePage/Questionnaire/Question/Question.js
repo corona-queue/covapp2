@@ -8,7 +8,8 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
-import Options from "../Options";
+import RadioOptions from "../Options";
+import DateInput from "../OptionsDate";
 
 import styles from "./styles.js";
 const useStyles = makeStyles(styles);
@@ -29,12 +30,8 @@ const Question = ({
     window.scrollTo({ top: y, behavior: "smooth" });
   }, [ref.current, currentAnswer]);
 
-  if (inputType !== "radio") {
-    console.error("TODO implement question type");
-    return null;
-  }
-
-  if (inputType !== "radio") {
+  const Options = { radio: RadioOptions, date: DateInput }[inputType];
+  if (!Options) {
     console.error("TODO implement question type");
     return null;
   }
