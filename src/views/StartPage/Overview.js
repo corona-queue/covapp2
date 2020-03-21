@@ -21,6 +21,7 @@ const useStyles = makeStyles(styles);
 export default function ProductSection() {
   const history = useHistory();
   const classes = useStyles();
+
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
