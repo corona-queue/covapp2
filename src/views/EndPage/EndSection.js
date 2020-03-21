@@ -1,11 +1,16 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
 import LocationOn from "@material-ui/icons/LocationOn";
+import CalendarToday from "@material-ui/icons/CalendarToday";
 import PhoneCallback from "@material-ui/icons/PhoneCallback";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -13,11 +18,12 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import endSectionStyles from "./endSectionStyle";
 
 import labs from "data/labs.js";
 import QRCode from "qrcode.react";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles({ ...styles, ...endSectionStyles });
 
 export default function EndSection() {
   const classes = useStyles();
@@ -54,9 +60,13 @@ export default function EndSection() {
             <p className={classes.description}>
               Wenn du von deinem Arzt oder offiziellen Stellen an kein
               bestimmtes Labor vermittelt wurdest, findest du hier eine Liste
-              von Teststätten, bei denen du einen Termin anfragen kannst.
+              von Teststätten, bei denen du einen Termin anfragen kannst.{" "}
+              <b>
+                Vereinbare nur einen Termin, wenn du eine entsprechende
+                Einschätzung von offizieller Seite bekommen hast.
+              </b>
             </p>
-            {labs.map(renderLab)}
+            {labs.map(lab => renderLab(lab, classes))}
           </GridItem>
         </GridContainer>
         <GridContainer justify="center">
@@ -92,18 +102,28 @@ export default function EndSection() {
   );
 }
 
-const renderLab = lab => {
+const renderLab = (lab, classes) => {
   return (
-    <div>
-      <p>
+    <ExpansionPanel>
+      <ExpansionPanelSummary expandIcon={<ExpandMore />}>
         <b>{lab.location}</b>
-        <br />
-        {lab.name}
-        <br />
-        {lab.address}
-        <br />
-        {lab.open}
-      </p>
-    </div>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <div className={classes.labContainer}>
+          <div className={classes.labDescription}>
+            <b>Intitut</b>: {lab.name}
+            <br />
+            <b>Adresse</b>: {lab.address}
+            <br />
+            <b>Öffnungszeiten</b>: {lab.open}
+          </div>
+          <div>
+            <Button type="button" color="standard">
+              <CalendarToday /> Termin anfragen
+            </Button>
+          </div>
+        </div>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   );
 };
