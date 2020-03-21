@@ -8,14 +8,26 @@ export const get = (route, params = {}) => {
     .catch(error => console.log(error));
 };
 
-export const getJson = route => {
-  const request = buildRequest({ route });
-  //return handleFetch(request);
-};
-export const postRequest = (route, body, jsonBody = true) => {
+export const post = (route, body, jsonBody = true) => {
   const request = buildRequest({ route, method: "POST", body, jsonBody });
-  //return handleFetch(request);
+  return handleFetch(request);
 };
+
+const handleFetch = (request, jsonResponse = true) => {
+  return new Promise((resolve, reject) => {
+    fetch(request)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Server returned ${response.status}`);
+        }
+        return jsonResponse ? response.json() : response;
+      })
+      // in case JSON is retuned, wait for response.json() promise to resolve
+      .then(json => resolve(json))
+      .catch(error => reject(error));
+  });
+};
+
 const buildRequest = params => {
   const { route, method = "GET", body = null, jsonBody = true } = params;
   let headers = { "Access-Control-Allow-Origin": "*" };
@@ -31,4 +43,5 @@ const buildRequest = params => {
   if (body !== null) {
     options = { ...options, body: jsonBody ? JSON.stringify(body) : body };
   }
-}
+  return new Request(`${backendUrl}${route}`, options);
+};

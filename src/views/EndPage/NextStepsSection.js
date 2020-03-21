@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
 import LocationOn from "@material-ui/icons/LocationOn";
@@ -16,6 +15,8 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
+
+import ContactInformation from "views/components/ContactInformation/ContactInformation";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import endSectionStyles from "./endSectionStyle";
@@ -39,6 +40,20 @@ export default function EndSection() {
         </GridItem>
       </GridContainer>
       <div>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
+            <h5 className={classes.title}>
+              Vervollständige deine Informationen
+            </h5>
+            <p className={classes.description}>
+              Gib deine Kontaktinforationen für den Rückrufservice an. Außerdem
+              sind diese Informationen teil der Daten, die du an ein Labor
+              übertragen kannst, um einen reibungslosen Testablauf zu
+              ermöglichen.
+            </p>
+            <ContactInformation />
+          </GridItem>
+        </GridContainer>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <h5 className={classes.title}>

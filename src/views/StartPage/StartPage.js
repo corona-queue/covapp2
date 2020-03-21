@@ -21,7 +21,7 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 
 import PageSetup from "views/PageSetup";
-import Overview from "views/StartPage/Overview";
+import OverviewSection from "views/StartPage/OverviewSection";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
@@ -33,7 +33,7 @@ export default function Components(props) {
   const { ...rest } = props;
   return (
     <PageSetup startPage={true}>
-      <Overview />
+      <OverviewSection />
     </PageSetup>
   );
 }

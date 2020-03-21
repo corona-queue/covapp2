@@ -22,9 +22,12 @@ Based on [CovApp](https://covapp.charite.de/).
     * Erweiterungsmöglichkeit: Scheduling
 
 ## TODOs
-* Fortschrittbalken bei Fragebogen
-* Kontrast erhöhen (hellgrau) auf Start und EndPage
+* Fortschritt bei Fragebogen
+* Kontrast erhöhen (hellgrauer kleiner Text)
+* Alles einheitlich stylen (fonts, PageSetup)
+* Aus Header auf start routen
 * Auswertung des Fragebogens > welche Optionen werden danach angezeigt (benötigt Priosisierung)
+  `curl -X POST -H "Content-Type: application/json" -d '{"q01": "q01_option2", "q02": "q02_option1"}'  https://ingress.corona.margau.me/evaluate`
 
 
 
