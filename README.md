@@ -2,7 +2,14 @@
 
 Based on [CovApp](https://covapp.charite.de/).
 
-## Table of Contents
+## Run with Docker
+* Run `docker build -t cov .`
+* To execute, run `docker run -v <PATH_TO_REPO>:/root/workspace -p 0.0.0.0:3000:3000 -it --rm cov`
+* Run `npm install`
+* Run `npm start`
+* The app will be available on your host system on `localhost:3000`
+
+## First Ideas
 
 * [Versions](#versions)
 * [Demo](#demo)
@@ -14,8 +21,6 @@ Based on [CovApp](https://covapp.charite.de/).
 * [Reporting Issues](#reporting-issues)
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
-
-
 
 
 
