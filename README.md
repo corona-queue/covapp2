@@ -5,18 +5,19 @@ Based on [CovApp](https://covapp.charite.de/).
 ## Run with Docker
 * Run `docker build -t cov .`
 * To execute, run `docker run -v <PATH_TO_REPO>:/root/workspace -p 0.0.0.0:3000:3000 -it --rm cov`
-* Run `npm install`
-* Run `npm start`
+* Run `yarn`
+* Run `yarn start`
 * The app will be available on your host system on `localhost:3000`
 
 
 ## TODOs
 * Header aufräumen
 * Footer aufräumen
-* Liste mit Teststellen in Berlin
+* Anderes Icon/Beschreibung in "Kontakt" Buttons
+* Liste mit Teststellen in Berlin (https://www.berlin.de/special/gesundheit-und-beauty/gesundheit/6100254-210-coronavirus-untersuchungsstellen-in-berl.html)
 * Fragen auslesen (REST service)
 * Kontakt aufnehmen (REST service, verschiedene Stellen sollten möglich sein)
-* QR code generieren (gleiches Format wie CovApp?)
+* QR code generieren (gleiches Format wie CovApp?) [<PATIENT><A>1</A><B>2</B><C>2</><D>2</D><E>2</E><Q>2</Q><R>2</R><T>2</T><U>2</U><W>2</W><X>2</X><Y>2</Y><Z>1</Z><A0>2</A0><A1>2</A1><A2>2</A2><A3>2</A3><B7>1</B7><B9>20200302</B9><A5>2</A5><A6>2</A6><A7>2</A7><A8>2</A8><A9>2</A9><B0>2</B0><B1>2</B1><B2>2</B2><B3>2</B3></PATIENT>]
 
 
 
