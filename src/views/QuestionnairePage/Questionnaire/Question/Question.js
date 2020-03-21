@@ -13,7 +13,11 @@ import Options from "../Options";
 import styles from "./styles.js";
 const useStyles = makeStyles(styles);
 
-const Question = ({ question: { text: headline, options, inputType } }) => {
+const Question = ({
+  question: { text: headline, options, inputType, id },
+  onSelectOption,
+  currentAnswer
+}) => {
   const classes = useStyles();
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
@@ -32,7 +36,8 @@ const Question = ({ question: { text: headline, options, inputType } }) => {
               <Options
                 inputType={inputType}
                 options={options}
-                value="answer_yes"
+                onSelectOption={optionIndex => onSelectOption(optionIndex)}
+                value={currentAnswer}
               />
             </CardBody>
           </form>
