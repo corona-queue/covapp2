@@ -10,10 +10,12 @@ const productStyle = {
     marginBottom: "1rem",
     marginTop: "30px",
     minHeight: "32px",
-    textDecoration: "none"
+    textDecoration: "none",
+    padding: "10px"
   },
   description: {
-    color: "#999"
+    color: "#999",
+    padding: "10px"
   }
 };
 

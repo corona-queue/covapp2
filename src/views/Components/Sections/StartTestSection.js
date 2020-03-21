@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import LocationOn from "@material-ui/icons/LocationOn";
+import Call from "@material-ui/icons/Call";
 import Help from "@material-ui/icons/Help";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -33,16 +33,16 @@ export default function ProductSection() {
       </GridContainer>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <InfoArea
               title="Beantworte einen Fragebogen"
-              description="Mit Deinen Antworten hilfst du dabei, das Krankheitsrisiko einzuschätzen."
+              description="Mit deinen Antworten hilfst du dabei, das Krankheitsrisiko einzuschätzen."
               icon={Chat}
               iconColor="info"
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <InfoArea
               title="Vervollständige deine Informationen"
               description="Um den Test möglichst schnell durchführen zu können, werden weitere Daten benötigt."
@@ -51,21 +51,21 @@ export default function ProductSection() {
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Setze dich mit Test-Centern in deiner Nähe in Verbindung"
-              description="Melde ."
-              icon={LocationOn}
-              iconColor="danger"
+              title="Setze dich mit den zuständigen Stellen in Verbindung"
+              description="Wir ermöglichen es dir, Kontakt mit den zuständigen Stellen aufzunehmen. Die eingegebenen Informationen werden direkt übermittelt."
+              icon={Call}
+              iconColor="rose"
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={12}>
+          <GridItem xs={12} sm={12} md={6}>
             <InfoArea
               title="Noch etas unklar?"
-              description="Wir helfen Dir die Informationen zu erhalten, die du brauchst."
+              description="Wir helfen dir die Informationen zu erhalten, die du brauchst."
               icon={Help}
-              iconColor="info"
+              iconColor="gray"
               vertical
             />
           </GridItem>

@@ -15,6 +15,7 @@ import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import SectionTest from "./Sections/StartTestSection.js";
+import EndSection from "./Sections/EndSection.js";
 
 // import styles from "assets/jss/material-kit-react/views/components.js";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
@@ -44,11 +45,11 @@ export default function Components(props) {
               <div className={classes.brand}>
                 <h1 className={classes.title}>Willkommen bei CovApp2</h1>
                 <h3>
-                  Wir sind Dein Begleiter im Testprozess auf den COVID-19 Virus.
+                  Wir sind dein Begleiter im Testprozess auf den COVID-19 Virus.
                 </h3>
                 <h3>
                   CovApp2 hat es sich zum Ziel gemacht, einen reibungslosen
-                  Ablauf und Datenaustausch zwischen Dir, den Teststätten,
+                  Ablauf und Datenaustausch zwischen dir, den Teststätten,
                   Informationsstellen und Ärzten zu ermöglichen.
                 </h3>
                 <h3>
@@ -69,6 +70,7 @@ export default function Components(props) {
 
       <div className={classNames(classes.main, classes.mainRaised)}>
         <SectionTest />
+        <EndSection />
       </div>
       <Footer />
     </div>
