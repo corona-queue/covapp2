@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -20,6 +21,7 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/prod
 const useStyles = makeStyles(styles);
 
 export default function ProductSection() {
+  const history = useHistory();
   const classes = useStyles();
   return (
     <div className={classes.section}>
@@ -72,7 +74,11 @@ export default function ProductSection() {
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={12} style={{ marginTop: "24px" }}>
-            <Button type="button" color="success">
+            <Button
+              type="button"
+              color="success"
+              onClick={() => history.push("/test")}
+            >
               Fragebogen starten
             </Button>
           </GridItem>

@@ -7,14 +7,14 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 
 // pages for this product
 import Components from "views/Components/Components.js";
-import LandingPage from "views/LandingPage/LandingPage.js";
+import TestWizardPage from "views/TestWizardPage/TestWizardPage.js";
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/components" component={LandingPage} />
+      <Route path="/test" component={TestWizardPage} />
       <Route path="/" component={Components} />
     </Switch>
   </Router>,
