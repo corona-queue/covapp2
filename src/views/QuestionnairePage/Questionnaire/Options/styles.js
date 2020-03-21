@@ -29,8 +29,8 @@ const style = theme => ({
     }
   },
   selected: {
-    color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.primary.main
+    color: "black",
+    backgroundColor: "lightgrey"
   }
 });
 

@@ -14,11 +14,65 @@ class QuestionTreeStore {
     this.question = question;
   }
 
+<<<<<<< HEAD
   answer(question, option) {
     console.log(question, option);
+=======
+  get currentQuestion() {
+    return this.questions[this.question];
   }
 
-  loadQuestions(page) {
+  getQuestionIndexById(id) {
+    for (var i = 0; i < this.questions.length; i++) {
+      if (this.questions[i].id == id) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  answer(question, option) {
+    const answeredQuestion = this.questions.find(q => q.id == question);
+    this.answers = {
+      ...this.answers,
+      [answeredQuestion.id]: option
+    };
+  }
+
+  get openQuestions() {
+    var openQuestions = [];
+    if (this.questions.length === 0) return openQuestions;
+
+    //traversier den Baum und gib alle möglichen Fragen zurück, mit der aktuellen Fragekette
+    var pointer = this.questions[0];
+    let i = 1000;
+    openQuestions.push(pointer);
+    do {
+      let answered = this.answers[pointer.id];
+      if (Array.isArray(pointer.nextQuestionMap)) {
+        let pointerOption = this.answers[pointer.id];
+        let optionIndex = pointer.options.findIndex(o => o.id == pointerOption);
+        let nextQuestionId = pointer.nextQuestionMap[optionIndex];
+        pointer = this.questions.find(q => q.id == nextQuestionId);
+      } else if (pointer.nextQuestionMap) {
+        pointer = this.questions.find(q => q.id == pointer.nextQuestionMap);
+      } else {
+        let nextQuestionIndex = this.questions.indexOf(pointer);
+        pointer = this.questions[nextQuestionIndex + 1];
+      }
+      i--;
+      if (pointer && answered) {
+        openQuestions.push(pointer);
+      } else {
+        i = 0;
+      }
+    } while (pointer && i > 0);
+    console.log(JSON.stringify(openQuestions));
+    return openQuestions;
+>>>>>>> 0899206... cool question flow
+  }
+
+  loadQuestions() {
     this.loading = true;
     get("").then(questions => {
       this.questions = questions;
@@ -43,7 +97,13 @@ decorate(QuestionTreeStore, {
   answers: observable,
   loading: observable,
   isSubmitting: observable,
+<<<<<<< HEAD
+=======
+  currentQuestion: computed,
+  openQuestions: computed,
+>>>>>>> 0899206... cool question flow
   setPage: action,
+  answer: action,
   loadQuestions: action,
   submitAnswers: action,
   setQuestions: action

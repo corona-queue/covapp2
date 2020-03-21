@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useLayoutEffect } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -19,10 +19,20 @@ const Question = ({
   currentAnswer
 }) => {
   const classes = useStyles();
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
-  setTimeout(function() {
-    setCardAnimation("");
-  }, 700);
+  const ref = useRef();
+
+  useLayoutEffect(() => {
+    if (!ref.current || currentAnswer) return;
+    const yOffset = -150;
+    const y =
+      ref.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }, [ref.current, currentAnswer]);
+
+  if (inputType !== "radio") {
+    console.error("TODO implement question type");
+    return null;
+  }
 
   if (inputType !== "radio") {
     console.error("TODO implement question type");
@@ -32,16 +42,16 @@ const Question = ({
   return (
     <GridContainer justify="center">
       <GridItem xs={12} sm={12} md={4}>
-        <Card className={classes[cardAnimaton]}>
+        <Card>
           <form className={classes.form}>
             <CardHeader color="primary" className={classes.cardHeader}>
-              <h4>{headline}</h4>
+              <h4 ref={ref}>{headline}</h4>
             </CardHeader>
             <CardBody>
               <Options
                 inputType={inputType}
                 options={options}
-                answer={optionId => answer(id, optionId)}
+                onSelectOption={optionIndex => onSelectOption(id, optionIndex)}
                 value={currentAnswer}
               />
             </CardBody>

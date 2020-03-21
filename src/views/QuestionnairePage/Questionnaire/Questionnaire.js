@@ -35,20 +35,20 @@ const Test = () => {
           </Grid>
         </Grid>
       )}
+
       {!store.loading &&
-        store.questions.map(question => (
-          <Slide direction="left" in={true} mountOnEnter unmountOnExit>
-            <div>
-              <Question
-                question={question}
-                currentAnswer={store.answers[question.id]}
-                answer={(question, option) => {
-                  store.answer(question, option);
-                }}
-              />
-            </div>
-          </Slide>
+        store.openQuestions.map((question, i) => (
+          <div key={question.id}>
+            <Question
+              question={question}
+              currentAnswer={store.answers[question.id]}
+              onSelectOption={(question, option) =>
+                store.answer(question, option)
+              }
+            />
+          </div>
         ))}
+      <div style={{ height: "100vh" }} />
     </div>
   ));
 };
