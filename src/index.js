@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
+import { syncHistoryWithStore } from 'mobx-react-router';
+import routerStore from "stores/router.js";
 
 import "assets/scss/material-kit-react.scss?v=1.8.0";
 
@@ -11,13 +13,14 @@ import QuestionnairePage from "views/QuestionnairePage/QuestionnairePage.js";
 import TestResultsPage from "views/TestResultsPage/TestResultsPage.js";
 import EndPage from "views/EndPage/EndPage.js";
 
-var hist = createBrowserHistory();
+const browserHistory = createBrowserHistory();
+const history = syncHistoryWithStore(browserHistory, routerStore);
 
 ReactDOM.render(
-  <Router history={hist}>
+  <Router history={history}>
     <Switch>
       <Route path="/end" component={EndPage} />
-      <Route path="/test" component={QuestionnairePage} />
+      <Route path="/test/:question" component={QuestionnairePage} />
       <Route path="/results" component={TestResultsPage} />
       <Route path="/" component={StartPage} />
     </Switch>
