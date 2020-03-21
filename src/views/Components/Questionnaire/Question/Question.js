@@ -8,7 +8,7 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
-import Option from "../Option";
+import Options from "../Options";
 
 import styles from "./styles.js";
 const useStyles = makeStyles(styles);
@@ -29,9 +29,11 @@ const Question = ({ question: { text: headline, options, inputType } }) => {
               <h4>{headline}</h4>
             </CardHeader>
             <CardBody>
-              {options.map(option => (
-                <Option inputType={inputType} {...option} />
-              ))}
+              <Options
+                inputType={inputType}
+                options={options}
+                value="answer_yes"
+              />
             </CardBody>
           </form>
         </Card>
