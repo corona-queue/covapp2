@@ -16,7 +16,11 @@ Based on [CovApp](https://covapp.charite.de/).
 * [Janusch] Report page (angabe der persönlichen daten (name, telephonnumer) + aufnahme in die ticket warteschlange via POST request)
 * [Tamara] Ticket flow
   * Kontakt aufnehmen (REST service, verschiedene Stellen sollten möglich sein)
+    * requestBody zusammenbauen (nicht nur mocken)
+  * Results und Ticketing testen, wenn CORS eingestellt
   * Kontaktaufnahme Dialog (Daten reviewen)
+    * Kontaktinforationen anzeigen
+    * Anfrage abschicken nur clickbar, wenn alle Kontaktinformationen ausgefüllt
     * Loading icon, wenn "Anfrage abschicken" angeklickt
     * Text, wenn Anfrage eingegangen ist: "Deine Anfrage ist eingegangen.  Aufgrund der hohen Anfrage kann es bis zu zwei Tagen dauern, dass du eine Rückmeldung erhälst."
     * Erweiterungsmöglichkeit: Scheduling
@@ -28,8 +32,7 @@ Based on [CovApp](https://covapp.charite.de/).
 * Alles einheitlich stylen (fonts, PageSetup)
 * Aus Header auf start routen
 * Auswertung des Fragebogens > welche Optionen werden danach angezeigt (benötigt Priosisierung)
-  `curl -X POST -H "Content-Type: application/json" -d '{"q01": "q01_option2", "q02": "q02_option1"}'  https://ingress.corona.margau.me/evaluate`
-
+* Fehler und Warnings in Konsole beheben
 
 
 

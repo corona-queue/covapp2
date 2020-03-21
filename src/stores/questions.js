@@ -1,6 +1,6 @@
 import { observable, action, decorate, runInAction, computed } from "mobx";
 import { createContext } from "react";
-import { getQuestions, getResults } from "./api";
+import { getQuestions, getResults, submitAnswers } from "./api";
 import routerStore from "./router";
 
 class QuestionTreeStore {
@@ -84,15 +84,12 @@ class QuestionTreeStore {
       });
   }
 
-  submitAnswers() {
+  submitAnswers(contactInformation) {
     this.isSubmitting = true;
 
-    setTimeout(() => {
-      runInAction(() => {
-        console.log("Submitting answers");
-        this.isSubmitting = false;
-      });
-    }, 2000);
+    submitAnswers(contactInformation, this.requestBody)
+      .then(success => console.log("Sucessful"))
+      .catch(error => console.error(error));
   }
 }
 

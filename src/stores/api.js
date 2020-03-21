@@ -45,8 +45,7 @@ const handleFetch = (request, jsonResponse = true) => {
 
 const buildRequest = params => {
   const { route, method = "GET", body = null, jsonBody = true } = params;
-  let headers = {};
-  // let headers = { "Access-Control-Allow-Origin": "*" };
+  let headers = { "Access-Control-Allow-Origin": "*" };
   if (jsonBody) {
     headers = { ...headers, "Content-Type": "application/json" };
   }

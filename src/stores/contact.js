@@ -13,12 +13,18 @@ class ContactStore {
   getAttribute(attribute, value) {
     return this[attribute];
   }
+
+  get requestBody() {
+    const { firstname, lastname, phone } = this;
+    return { firstname, lastname, phone };
+  }
 }
 
 decorate(ContactStore, {
   firstname: observable,
   lastname: observable,
   phone: observable,
+  requestBody: computed,
   getAttribute: action,
   setAttribute: action
 });
