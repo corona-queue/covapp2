@@ -41,9 +41,14 @@ export default function Components(props) {
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Covid-19</h1>
+                <h1 className={classes.title}>Willkommen bei CovApp2</h1>
                 <h3 className={classes.subtitle}>
-                  Anmeldung für den Corona-Test
+                  Wir sind Dein Begleiter im Testprozess auf den COVID-19 Virus.
+                </h3>
+                <h3 className={classes.subtitle}>
+                  CovApp2 hat es sich zum Ziel gemacht, einen reibungslosen
+                  Ablauf und Datenaustausch zwischen Dir, den Teststätten,
+                  Informationsstellen und Ärzten zu ermöglichen.
                 </h3>
               </div>
             </GridItem>
