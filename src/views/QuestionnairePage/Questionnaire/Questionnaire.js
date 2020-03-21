@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Question from "./Question";
+import Slide from "@material-ui/core/Slide";
 
 import QuestionsStore from "../../../stores/questions";
 import styles from "./styles";
@@ -34,14 +35,20 @@ const Test = () => {
           </Grid>
         </Grid>
       )}
-      {!store.loading && store.questions.length > 0 && (
-        <Question
-          question={store.questions[0]}
-          answer={(question, option) => {
-            store.answer(question, option);
-          }}
-        />
-      )}
+      {!store.loading &&
+        store.questions.map(question => (
+          <Slide direction="left" in={true} mountOnEnter unmountOnExit>
+            <div>
+              <Question
+                question={question}
+                currentAnswer={store.answers[question.id]}
+                answer={(question, option) => {
+                  store.answer(question, option);
+                }}
+              />
+            </div>
+          </Slide>
+        ))}
     </div>
   ));
 };

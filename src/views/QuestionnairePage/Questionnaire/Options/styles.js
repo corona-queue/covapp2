@@ -16,7 +16,8 @@ const style = theme => ({
     textAlign: "center",
     [theme.breakpoints.up("sm")]: {
       minWidth: 160
-    }
+    },
+    textTransform: "unset"
   },
   wrapper: {
     display: "inline-flex",

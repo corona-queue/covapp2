@@ -15,7 +15,7 @@ import styles from "./styles.js";
 
 const useStyles = makeStyles(styles);
 
-const Option = ({ options, value, answer }) => {
+const Option = ({ options = [], value, answer }) => {
   const classes = useStyles();
 
   return (

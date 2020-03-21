@@ -24,6 +24,11 @@ const Question = ({
     setCardAnimation("");
   }, 700);
 
+  if (inputType !== "radio") {
+    console.error("TODO implement question type");
+    return null;
+  }
+
   return (
     <GridContainer justify="center">
       <GridItem xs={12} sm={12} md={4}>
