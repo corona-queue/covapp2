@@ -14,9 +14,10 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import SectionTest from "./Sections/SectionTest.js";
+import SectionTest from "./Sections/StartTestSection.js";
 
-import styles from "assets/jss/material-kit-react/views/components.js";
+// import styles from "assets/jss/material-kit-react/views/components.js";
+import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 const useStyles = makeStyles(styles);
 
@@ -42,13 +43,23 @@ export default function Components(props) {
             <GridItem>
               <div className={classes.brand}>
                 <h1 className={classes.title}>Willkommen bei CovApp2</h1>
-                <h3 className={classes.subtitle}>
+                <h3>
                   Wir sind Dein Begleiter im Testprozess auf den COVID-19 Virus.
                 </h3>
-                <h3 className={classes.subtitle}>
+                <h3>
                   CovApp2 hat es sich zum Ziel gemacht, einen reibungslosen
                   Ablauf und Datenaustausch zwischen Dir, den Teststätten,
                   Informationsstellen und Ärzten zu ermöglichen.
+                </h3>
+                <h3>
+                  Based on{" "}
+                  <a
+                    style={{ color: "white", textDecoration: "underline" }}
+                    href="https://covapp.charite.de/"
+                  >
+                    CovApp
+                  </a>{" "}
+                  by Charité Berlin and data4life.
                 </h3>
               </div>
             </GridItem>
