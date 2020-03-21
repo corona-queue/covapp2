@@ -13,7 +13,6 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
-import HeaderLinks from "components/Header/HeaderLinks.js";
 import SectionTest from "./Sections/StartTestSection.js";
 import EndSection from "./Sections/EndSection.js";
 
@@ -29,7 +28,6 @@ export default function Components(props) {
     <div>
       <Header
         brand="CovApp2"
-        rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
         changeColorOnScroll={{
