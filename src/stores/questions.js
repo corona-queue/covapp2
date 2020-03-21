@@ -1,4 +1,4 @@
-import { observable, action, decorate } from "mobx";
+import { observable, action, decorate, runInAction } from "mobx";
 import { createContext } from "react";
 import { get } from "./api";
 
@@ -7,6 +7,7 @@ class QuestionTreeStore {
   answers = {};
   name = "Michael";
   loading = false;
+  isSubmitting = false;
 
   setPage(page) {
     this.page = page;
@@ -19,14 +20,29 @@ class QuestionTreeStore {
       this.loading = false;
     });
   }
+
+  submitAnswers() {
+    this.isSubmitting = true;
+
+    setTimeout(
+      () => {
+        runInAction(() => {
+          console.log("Submitting answers");
+          this.isSubmitting = false;
+        });
+      }, 2000
+    )
+  }
 }
 
 decorate(QuestionTreeStore, {
   questions: observable,
   answers: observable,
   loading: observable,
+  isSubmitting: observable,
   setPage: action,
-  loadQuestions: action
+  loadQuestions: action,
+  submitAnswers: action,
 });
 
 export default createContext(new QuestionTreeStore());
