@@ -11,12 +11,16 @@ Based on [CovApp](https://covapp.charite.de/).
 
 
 ## TODOs
-* Header aufräumen
-* Footer aufräumen
-* Anderes Icon/Beschreibung in "Kontakt" Buttons
 * Liste mit Teststellen in Berlin (https://www.berlin.de/special/gesundheit-und-beauty/gesundheit/6100254-210-coronavirus-untersuchungsstellen-in-berl.html)
-* Fragen auslesen (REST service)
+  * ~~Liste erstellen und rendern~~
+  * Termin vereinbaren
+
 * Kontakt aufnehmen (REST service, verschiedene Stellen sollten möglich sein)
+* Kontaktaufnahme Dialog (Daten reviewen)
+  * Loading icon, wenn "Anfrage abschicken" angeklickt
+  * Text, wenn Anfrage eingegangen ist: "Deine Anfrage ist eingegangen. Aufgrund der hohen Anfrage kann es bis zu zwei Tagen dauern, dass du eine Rückmeldung erhälst."
+  * Erwiterungsmöglichkeit: Scheduling
+* Auswertung des Fragebogens > welche Optionen werden danach angezeigt
 * QR code generieren (gleiches Format wie CovApp?)
   ```<PATIENT><A>1</A><B>2</B><C>2</><D>2</D><E>2</E><Q>2</Q><R>2</R><T>2</T><U>2</U><W>2</W><X>2</X><Y>2</Y><Z>1</Z><A0>2</A0><A1>2</A1><A2>2</A2><A3>2</A3><B7>1</B7><B9>20200302</B9><A5>2</A5><A6>2</A6><A7>2</A7><A8>2</A8><A9>2</A9><B0>2</B0><B1>2</B1><B2>2</B2><B3>2</B3></PATIENT>```
 

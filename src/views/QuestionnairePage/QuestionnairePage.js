@@ -16,7 +16,7 @@ import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/questionnairePage.js";
 
-import Questionnaire from "../Components/Questionnaire";
+import Questionnaire from "./Questionnaire";
 
 const dashboardRoutes = [];
 

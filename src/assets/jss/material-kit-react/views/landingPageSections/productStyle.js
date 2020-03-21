@@ -5,6 +5,11 @@ const productStyle = {
     padding: "70px 0",
     textAlign: "center"
   },
+  small: {
+    paddingTop: "20px",
+    paddingBottom: "70px",
+    textAlign: "center"
+  },
   title: {
     ...title,
     marginBottom: "1rem",

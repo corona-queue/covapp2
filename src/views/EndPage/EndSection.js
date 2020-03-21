@@ -4,9 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import LocationOn from "@material-ui/icons/LocationOn";
-import Call from "@material-ui/icons/Call";
+import PhoneCallback from "@material-ui/icons/PhoneCallback";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -15,15 +14,14 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
+import labs from "data/labs.js";
+
 const useStyles = makeStyles(styles);
 
-// TODO: "Loading icon, wenn "Kontakt aufnehmen" angeklickt
-// > Text, wenn Anfrage eingegangen ist: "Deine Anfrage ist eingegangen. Aufgrund der hohen Anfrage kann es bis zu zwei Tagen dauern, dass du eine Rückmeldung erhälst."
-
-export default function ProductSection() {
+export default function EndSection() {
   const classes = useStyles();
   return (
-    <div className={classes.section}>
+    <div className={classes.small}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Wie geht es weiter?</h2>
@@ -45,7 +43,7 @@ export default function ProductSection() {
               weiter, sie werden dich zurückrufen.
             </p>
             <Button type="button" color="success">
-              <Call /> Kontakt mit Gesundheitsamt aufnehmen
+              <PhoneCallback /> Rückruf vereinbaren
             </Button>
           </GridItem>
         </GridContainer>
@@ -55,11 +53,9 @@ export default function ProductSection() {
             <p className={classes.description}>
               Wenn du von deinem Arzt oder offiziellen Stellen an kein
               bestimmtes Labor vermittelt wurdest, findest du hier eine Liste
-              von Teststätten.
+              von Teststätten, bei denen du einen Termin anfragen kannst.
             </p>
-            <p style={{ color: "red" }}>
-              [LISTE VON LABOREN (mit Adresse und Öffnungszeiten)]
-            </p>
+            {labs.map(renderLab)}
           </GridItem>
         </GridContainer>
         <GridContainer justify="center">
@@ -84,7 +80,7 @@ export default function ProductSection() {
             </p>
             <p style={{ color: "red" }}>[TODO: Frage stellen in Input]</p>
             <Button type="button" color="success">
-              <Call /> Kontakt mit Hotline aufnehmen
+              <PhoneCallback /> Rückruf vereinbaren
             </Button>
           </GridItem>
         </GridContainer>
@@ -92,3 +88,19 @@ export default function ProductSection() {
     </div>
   );
 }
+
+const renderLab = lab => {
+  return (
+    <div>
+      <p>
+        <b>{lab.location}</b>
+        <br />
+        {lab.name}
+        <br />
+        {lab.address}
+        <br />
+        {lab.open}
+      </p>
+    </div>
+  );
+};

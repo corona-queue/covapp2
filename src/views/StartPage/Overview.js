@@ -13,8 +13,6 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
-//ownComponent
-import Test from "../Questionnaire";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
@@ -66,7 +64,7 @@ export default function ProductSection() {
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Noch etas unklar?"
+              title="Noch etwas unklar?"
               description="Wir helfen dir die Informationen zu erhalten, die du brauchst."
               icon={Help}
               iconColor="gray"
@@ -83,7 +81,6 @@ export default function ProductSection() {
             </Button>
           </GridItem>
         </GridContainer>
-        <Test />
       </div>
     </div>
   );
