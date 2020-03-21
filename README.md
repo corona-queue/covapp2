@@ -10,6 +10,13 @@ Based on [CovApp](https://covapp.charite.de/).
 * The app will be available on your host system on `localhost:3000`
 
 
+## TODOs
+* Header aufräumen
+* Footer aufräumen
+* Liste mit Teststellen in Berlin
+* Fragen auslesen (REST service)
+* Kontakt aufnehmen (REST service, verschiedene Stellen sollten möglich sein)
+* QR code generieren (gleiches Format wie CovApp?)
 
 
 

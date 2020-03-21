@@ -64,11 +64,25 @@ export default function ProductSection() {
         </GridContainer>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
+            <h5 className={classes.title}>
+              Hier sind deine Daten zusammengefasst
+            </h5>
+            <p className={classes.description}>
+              Wenn du zum Test an ein Labor vermittelt wurdest, kannst du deine
+              Daten mitbringen und direkt mit dem folgenden QR Code auslesen
+              lassen. Mach dir am besten einen Screenshot.
+            </p>
+            <p style={{ color: "red" }}>QR Code</p>
+          </GridItem>
+        </GridContainer>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
             <h5 className={classes.title}>Du hast noch weitere Fragen?</h5>
             <p className={classes.description}>
               Nimm Kontakt mit einer allgemeinen Hotline auf, um weitere
               Informationen zu erhalten:
             </p>
+            <p style={{ color: "red" }}>[TODO: Frage stellen in Input]</p>
             <Button type="button" color="success">
               <Call /> Kontakt mit Hotline aufnehmen
             </Button>

@@ -28,7 +28,7 @@ export default function Components(props) {
   return (
     <div>
       <Header
-        brand="Gesundheitsämter des Landes"
+        brand="CovApp2"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
