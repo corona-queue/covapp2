@@ -37,8 +37,8 @@ const Test = () => {
       {!store.loading && store.questions.length > 0 && (
         <Question
           question={store.questions[0]}
-          answer={answer => {
-            store.setQuestion(1);
+          answer={(question, option) => {
+            store.answer(question, option);
           }}
         />
       )}

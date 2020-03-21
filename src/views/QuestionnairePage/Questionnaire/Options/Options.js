@@ -41,6 +41,7 @@ const Option = ({ options, value, answer }) => {
             className={classNames(classes.root, {
               [classes.selected]: selected
             })}
+            onClick={() => answer(id)}
           >
             <span className={classes.wrapper}>
               <Icon fontSize="large" />

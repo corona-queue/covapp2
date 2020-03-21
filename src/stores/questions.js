@@ -14,6 +14,10 @@ class QuestionTreeStore {
     this.question = question;
   }
 
+  answer(question, option) {
+    console.log(question, option);
+  }
+
   loadQuestions(page) {
     this.loading = true;
     get("").then(questions => {
