@@ -11,8 +11,6 @@ Based on [CovApp](https://covapp.charite.de/).
 
 
 ## TODOs
-* Einzelroute hübsch machen und verallgemeinern
-* EndSection in neue Route
 * Liste mit Teststellen in Berlin (https://www.berlin.de/special/gesundheit-und-beauty/gesundheit/6100254-210-coronavirus-untersuchungsstellen-in-berl.html)
   * ~~Liste erstellen und rendern~~
   * Termin vereinbaren

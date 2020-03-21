@@ -64,7 +64,7 @@ export default function ProductSection() {
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
             <InfoArea
-              title="Noch etas unklar?"
+              title="Noch etwas unklar?"
               description="Wir helfen dir die Informationen zu erhalten, die du brauchst."
               icon={Help}
               iconColor="gray"

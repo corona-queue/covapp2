@@ -80,7 +80,7 @@ const renderHeader = classes => {
     <Parallax
       style={{ height: "200px" }}
       filter
-      image={require("assets/img/landing-bg.jpg")}
+      image={require("assets/img/virus_smaller.jpg")}
     ></Parallax>
   );
 };
