@@ -69,6 +69,7 @@ decorate(QuestionTreeStore, {
   questions: observable,
   answers: observable,
   loading: observable,
+  question: observable,
   isSubmitting: observable,
   currentQuestion: computed,
   setPage: action,
