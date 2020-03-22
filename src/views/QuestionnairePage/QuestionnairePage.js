@@ -10,7 +10,7 @@ import PageSetup from "views/PageSetup";
 
 import styles from "assets/jss/material-kit-react/views/questionnairePage.js";
 
-import Questionnaire from "./Questionnaire";
+import Questionnaire from "views/components/Questionnaire";
 
 const dashboardRoutes = [];
 

@@ -30,6 +30,10 @@ Based on [CovApp](https://covapp.charite.de/).
 # Future Work
 * Define different endpoints for Gesundheitsamt, Hotline, Labor Kalender (currently only one backend, so there is no need for it)
 * Tatsächlich verhindern, dass pro Nutzer nur eine Anfrage pro Typ abgegeben werden kann (bisher kann man einfach neu laden)
+* Datums-Fragen
+  * im Questionnaire abfangen, wenn alle Fragen auf die es sich bezieht negativ beantwortet wurden
+  * nicht mit zukünftigen Daten beantworten können
+
 
 
 

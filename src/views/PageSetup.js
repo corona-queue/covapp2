@@ -30,7 +30,7 @@ export default function PageSetup(props) {
         fixed
         color="transparent"
         changeColorOnScroll={{
-          height: 100,
+          height: 70,
           color: "white"
         }}
         {...rest}

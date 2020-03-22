@@ -20,12 +20,12 @@ import ContactInformation from "views/components/ContactInformation/ContactInfor
 import TicketRequestDialog from "views/components/TicketRequestDialog/TicketRequestDialog";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
-import endSectionStyles from "./endSectionStyle";
+import sectionStyles from "./styles";
 
 import labs from "data/labs.js";
 import QRCode from "qrcode.react";
 
-const useStyles = makeStyles({ ...styles, ...endSectionStyles });
+const useStyles = makeStyles({ ...styles, ...sectionStyles });
 
 export default function EndSection() {
   const classes = useStyles();

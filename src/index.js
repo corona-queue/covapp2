@@ -11,7 +11,7 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 // pages for this product
 import StartPage from "views/StartPage/StartPage.js";
 import QuestionnairePage from "views/QuestionnairePage/QuestionnairePage.js";
-import EndPage from "views/EndPage/EndPage.js";
+import ResultPage from "views/ResultPage/ResultPage.js";
 
 const browserHistory = createBrowserHistory();
 const history = syncHistoryWithStore(browserHistory, routerStore);
@@ -29,7 +29,7 @@ ReactDOM.render(
   <Router history={history}>
     <ScrollMemory />
     <Switch>
-      <Route path="/end" component={EndPage} />
+      <Route path="/result" component={ResultPage} />
       <Route path="/test/:question" component={QuestionnairePage} />
       <Route path="/test" component={RedirectToFirstQuestion} />
       <Route path="/" component={StartPage} />

@@ -33,7 +33,7 @@ const Final = ({ onClick }) => {
                   size="large"
                   color="standard"
                   variant="contained"
-                  onClick={() => history.push("/end")}
+                  onClick={() => history.push("/result")}
                 >
                   Auswertung
                 </Button>
