@@ -57,7 +57,7 @@ const renderLargeHeader = classes => {
             <div className={classes.brand}>
               <h1 className={classes.title}>Willkommen bei CoronaQueue</h1>
               <h3>
-                Wir begleiten dich während des Testprozesses auf den Coronavirus
+                Wir begleiten dich während des Testprozesses auf das Coronavirus
                 (SARS-CoV-2).
               </h3>
               <h3>
