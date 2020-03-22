@@ -21,9 +21,8 @@ export default function QuestionnairePage(props) {
   const { ...rest } = props;
   return (
     <div>
-      <PageSetup>
+      <PageSetup hideBackground={true}>
         <div className={classes.raised}>
-          <div style={{ height: "50px" }} />
           <Questionnaire />
         </div>
       </PageSetup>

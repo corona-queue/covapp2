@@ -33,7 +33,13 @@ export default function PageSetup(props) {
         {...rest}
       />
       {props.startPage ? renderLargeHeader(classes) : renderHeader(classes)}
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div
+        className={
+          props.hideBackground
+            ? ""
+            : classNames(classes.main, classes.mainRaised)
+        }
+      >
         {props.children}
       </div>
       <Footer />

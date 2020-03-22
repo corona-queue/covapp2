@@ -42,7 +42,7 @@ const Question = ({
         <Card>
           <form className={classes.form}>
             <CardHeader color="primary" className={classes.cardHeader}>
-              <h4 ref={ref}>{headline}</h4>
+              <h3 ref={ref}>{headline}</h3>
             </CardHeader>
             <CardBody>
               {comment && <p>{comment}</p>}

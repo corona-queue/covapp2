@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import HelpOutline from "@material-ui/icons/HelpOutline";
 
 import RadioButtonChecked from "@material-ui/icons/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
@@ -28,7 +29,8 @@ const Radio = ({ options, value, onSelectOption }) => {
       {options.map(({ text, id }, index) => {
         var Icon = {
           answer_yes: CheckCircleOutlineIcon,
-          answer_no: HighlightOffIcon
+          answer_no: HighlightOffIcon,
+          answer_unknown: HelpOutline
         }[id];
         Icon =
           Icon || (id == value ? RadioButtonChecked : RadioButtonUncheckedIcon);
