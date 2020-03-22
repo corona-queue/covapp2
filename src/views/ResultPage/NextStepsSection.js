@@ -17,6 +17,7 @@ import ResultSection from "./ResultSection";
 
 import ContactInformation from "views/components/ContactInformation/ContactInformation";
 import TicketRequestDialog from "views/components/TicketRequestDialog/TicketRequestDialog";
+import questions from "data/questionnaire/tree.js"
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import sectionStyles from "./styles";
@@ -35,11 +36,28 @@ export default function NextStepsSection() {
 
   const store = useContext(QuestionsStore);
 
+  function resovleAnswerToXml(qid, answer) {
+      for (let question of Object.values(questions)) {
+          if (question.id === qid) {
+              if (question.options) {
+                  for (let idx = 0; idx < question.options.length; idx++) {
+                      if (question.options[idx] === answer) return [question.xmlCode, idx + 1];
+                  }
+              } else {
+                  return [question.xmlCode, answer];
+              }
+          }
+      }
+      return [qid, answer];
+  }
+
+  function reduceAnswersToXml(string, answerID) {
+      const [questionXmlCode, answerXmlCode] = resovleAnswerToXml(answerID, store.answers[answerID]);
+      return string + "<" + questionXmlCode + ">" + answerXmlCode + "</" + questionXmlCode + ">";
+  }
+
   return useObserver(() => {
-      const qrCodeString = "<PATIENT>"
-          + Object.keys(store.answers).reduce((string, answerID) =>
-              string + "<" + answerID + ">" + store.answers[answerID] + "</" + answerID + ">", "")
-          + "</PATIENT>";
+      const qrCodeString = "<PATIENT>" + Object.keys(store.answers).reduce(reduceAnswersToXml, "") + "</PATIENT>";
       console.log(qrCodeString);
 
       return (
