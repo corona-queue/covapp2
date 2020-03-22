@@ -12,6 +12,7 @@ import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 // @material-ui/icons
+import Warning from "@material-ui/icons/Warning";
 import Menu from "@material-ui/icons/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
@@ -62,9 +63,33 @@ export default function Header(props) {
   });
   const onClick = props.onBrandClick || (() => {});
   const brandComponent = (
-    <Button onClick={onClick} className={classes.title}>
-      {brand}
-    </Button>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between"
+      }}
+    >
+      <Button onClick={onClick} className={classes.title}>
+        <div style={{ fontSize: "1.2em" }}>{brand}</div>
+      </Button>
+      <div
+        style={{
+          fontWeight: "bold",
+          paddingLeft: "16px",
+          paddingRight: "16px",
+          color: "#e91e63",
+          backgroundColor: "rgba(255,255,255,0.8)",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <Warning style={{ margin: "4px" }} />
+        Bitte beachten: Dies ist nur eine Testinstallation zu Demozwecken, es
+        werden keine Anfragen ans Gedunheitsamt weitergeleitet.
+      </div>
+    </div>
   );
   return (
     <AppBar className={appBarClasses}>
