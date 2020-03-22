@@ -42,10 +42,6 @@ export default function NextStepsSection() {
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Wie geht es weiter?</h2>
-          <h5 className={classes.description}>
-            Du hast alle relevanten Informationen gesammelt, um deinen Fall
-            einzuschätzen. Nun führen wir dich durch die nächsten Schritte.
-          </h5>
           <ResultSection />
         </GridItem>
       </GridContainer>
