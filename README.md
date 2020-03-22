@@ -1,4 +1,4 @@
-# CoronaQueue
+# CovApp2
 
 Based on [CovApp](https://covapp.charite.de/).
 
@@ -12,23 +12,26 @@ Based on [CovApp](https://covapp.charite.de/).
 ## Doing
 * [Jonathan] QR code generieren (gleiches Format wie CovApp?)
   `<PATIENT><A>1</A><B>2</B><C>2</><D>2</D><E>2</E><Q>2</Q><R>2</R><T>2</T><U>2</U><W>2</W><X>2</X><Y>2</Y><Z>1</Z><A0>2</A0><A1>2</A1><A2>2</A2><A3>2</A3><B7>1</B7><B9>20200302</B9><A5>2</A5><A6>2</A6><A7>2</A7><A8>2</A8><A9>2</A9><B0>2</B0><B1>2</B1><B2>2</B2><B3>2</B3></PATIENT>`
+* [Tamara] Ticketing result testen, status anzeigen (GGf. fett machen)
 
 ## TODOs
-* Namen auf corona queue
-* [Tamara] Ticketing result testen, status anzeigen (GGf. fett machen)
 
 * [MAYBE] Small front-end for Demo
 
-* Fragen filtern, wenn Baum nicht gesetzt ist
-* Styling Button Locations
 * Auswertung des Fragebogens
   * Ergebnis anzeigen
   * Welche Optionen werden danach angezeigt (benötigt Priosisierung)
 
-* Result Seite stylen
-* Kontrast erhöhen (hellgrauer kleiner Text)
-* Dunkler Hintergrund für Start Header Text
-* Alles einheitlich stylen (fonts, breiten)
+* Fragen filtern, wenn Baum nicht gesetzt ist
+
+* Styling collection
+  * Use questionnaire color at more places
+  * Use call back icon instead of call on start page
+  * Style appointment buttons on result page
+  * Alles einheitlich stylen (fonts, breiten) > Start und Result page
+  * Kontrast erhöhen (hellgrauer kleiner Text)
+  * Dunkler Hintergrund für Start Header Text
+
 * Daten in Kontaktdialog zum Review anzeigen, die geschickt werden sollen
 * [BLOCKED] Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
 
