@@ -1,4 +1,4 @@
-import { observable, action, decorate, runInAction, computed } from "mobx";
+import { observable, action, decorate, computed } from "mobx";
 import { createContext } from "react";
 import { getQuestions, getResults, submitAnswers } from "./api";
 import routerStore from "./router";
