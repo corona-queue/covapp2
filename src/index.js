@@ -10,6 +10,7 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 import StartPage from "views/StartPage/StartPage.js";
 import QuestionnairePage from "views/QuestionnairePage/QuestionnairePage.js";
 import TicketPage from "views/TicketPage/TicketPage.js";
+import LabsPage from "views/LabsPage/LabsPage.js";
 import CallcenterPage from "views/CallcenterPage/CallcenterPage.js";
 
 const history = createBrowserHistory();
@@ -19,6 +20,7 @@ ReactDOM.render(
     <ScrollMemory />
     <Switch>
       <Route path="/callcenter" component={CallcenterPage} />
+      <Route path="/labs" component={LabsPage} />
       <Route path="/ticket" component={TicketPage} />
       <Route path="/test" component={QuestionnairePage} />
       <Route path="/" component={StartPage} />

@@ -15,10 +15,6 @@ Based on [CovApp](https://covapp.charite.de/).
     * Welcome Text mit "wir melden uns"
     * Übersendete Daten
     * Position (mit refresh Button)
-    * "Wie geht es weiter, nachdem ich zurück gerufen wurde?" > "/nextsteps"
-      * Test infos in eigene Route
-      * QR Code in Labore (ohne "Termin vereinbaren")
-      * Weitere Fragen: Nummer von Info Hotline oder Link
 
 ## TODOs
 
