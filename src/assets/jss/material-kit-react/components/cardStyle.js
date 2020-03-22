@@ -21,6 +21,10 @@ const cardStyle = {
     background: "transparent",
     boxShadow: "none"
   },
+  cardNoMargin: {
+    marginBottom: 10,
+    marginTop: 10
+  },
   cardCarousel: {
     overflow: "hidden"
   }
