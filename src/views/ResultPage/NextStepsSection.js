@@ -134,7 +134,7 @@ export default function NextStepsSection() {
           </Card>
         </GridItem>
         <GridItem xs={12} sm={12} md={8}>
-          <Card>
+          <Card noHeader={true}>
             <CardBody>
               <h3 className={classes.title}>Wer führt Tests durch?</h3>
               <p className={classes.description}>
@@ -151,7 +151,7 @@ export default function NextStepsSection() {
           </Card>
         </GridItem>
         <GridItem xs={12} sm={12} md={8}>
-          <Card>
+          <Card noHeader={true}>
             <CardBody>
               <h3 className={classes.title}>Du hast noch weitere Fragen?</h3>
               <p className={classes.description}>
