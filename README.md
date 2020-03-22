@@ -59,6 +59,8 @@ Based on [CovApp](https://covapp.charite.de/).
   * Labs Liste erweitern/automatisch crawlen
   * Angezeite Labs nach Standort filtern
   * Prozess nach Bundesland: Kann ich überhaupt direkt zum Test Center?
+* Datei mit Frageliste vom Backend laden
+  * xmlCode dort einbauen
 
 
 
