@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from "react";
+
 import { useObserver } from "mobx-react-lite";
 import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Question from "./Question";
-import Slide from "@material-ui/core/Slide";
+import Final from "./Final";
 
 import QuestionsStore from "../../../stores/questions";
 import styles from "./styles";
@@ -48,6 +49,9 @@ const Test = () => {
             />
           </div>
         ))}
+
+      {store.finished && <Final />}
+
       <div style={{ height: "100vh" }} />
     </div>
   ));

@@ -63,7 +63,10 @@ class QuestionTreeStore {
         pointer = this.questions.find(q => q.id == pointer.nextQuestionMap);
       } else {
         let nextQuestionIndex = this.questions.indexOf(pointer);
-        pointer = this.questions[nextQuestionIndex + 1];
+        pointer =
+          this.questions.length <= nextQuestionIndex
+            ? null
+            : this.questions[nextQuestionIndex + 1];
       }
       i--;
       if (pointer && answered) {
@@ -73,6 +76,12 @@ class QuestionTreeStore {
       }
     } while (pointer && i > 0);
     return openQuestions;
+  }
+
+  get finished() {
+    const lastQuestion = this.questions[this.questions.length - 1];
+    const lastQuestionShowed = this.openQuestions.indexOf(lastQuestion) > 0;
+    return lastQuestionShowed && !!this.answers[lastQuestion.id];
   }
 
   loadQuestions() {
