@@ -9,12 +9,6 @@ Based on [CovApp](https://covapp.charite.de/).
 * Run `yarn start`
 * The app will be available on your host system on `localhost:3000`
 
-## Doing
-* [Tamara] Result page anpassen
-  * Result Seite
-    * Welcome Text mit "wir melden uns"
-    * Übersendete Daten
-    * Position (mit refresh Button)
 
 ## TODOs
 
@@ -29,9 +23,11 @@ Based on [CovApp](https://covapp.charite.de/).
   * Buttons mit grauem Kasten hervorheben
   * Date Picker Dialog auf deutsch
   * Duzen vs. Siezen vereinheitlichen
-  * Letzte Frage "Verstanden" unnoetig
 
-# Future Work
+* Ticket Seite
+  * Übersendete Daten anzeigen (Antworten, Kontaktinfos)
+  * Position anzeigen (mit refresh Button)
+
 * Kleinere Sachen
   * Responsive design hübsch machen
     * Header auf Startseite zu groß
@@ -43,15 +39,16 @@ Based on [CovApp](https://covapp.charite.de/).
     * Timestamp ohne Time, nur Datum
 
 * Define different endpoints for Gesundheitsamt, Hotline, Labor Kalender (currently only one backend, so there is no need for it)
-* QR Code wie in CovApp erstellen (brauchen ein Mapping zwischen App <> QR Question IDs und App <> QR Werten)
+
+* QR Code CovApp Format validieren
+* In QR code Frageliste vom Backend (im Store) nutzen und xmlCode dort einbauen
+
 * Anzeige von Laboren verbessern
   * Standort-basiert oder Adresse angeben
   * Maps Karte
   * Labs Liste erweitern/automatisch crawlen
   * Angezeite Labs nach Standort filtern
   * Prozess nach Bundesland: Kann ich überhaupt direkt zum Test Center?
-* Datei mit Frageliste vom Backend laden
-  * xmlCode dort einbauen
 
 
 

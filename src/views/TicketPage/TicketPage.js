@@ -27,12 +27,16 @@ const Ticket = props => {
           med_prio: 0,
           tags: ["Information"]
         };
+    const text =
+      ticket.priority === 1 || ticket.priority === 2
+        ? "Bitte beachte, dass zur Zeit viele Anfragen eingehen und längere Wartezeiten entstehen können."
+        : "Das Gesundheitsamt wird sich schnellstmöglich bei dir melden.";
     return (
       <div className={classes.small}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <h2 className={classes.title}>Deine Anfrage wurde übermittelt</h2>
-            <h5 className={classes.description}>{JSON.stringify(ticket)}</h5>
+            <h5 className={classes.description}>{text}</h5>
             <h5
               className={classes.description}
               style={{ paddingTop: "32px" }}
