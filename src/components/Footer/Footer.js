@@ -39,8 +39,14 @@ export default function Footer(props) {
             target="_blank"
           >
             Creative Tim
+          </a>
+          . <br />
+          Based on{" "}
+          <a className={aClasses} href="https://covapp.charite.de/">
+            CovApp
           </a>{" "}
-          .
+          by Charité Berlin and data4life, enhanced by the CoronaQueue team at
+          #WirVsVirusHackathon.
         </div>
       </div>
     </footer>

@@ -22,8 +22,9 @@ const productStyle = {
     padding: "10px"
   },
   description: {
-    color: "#999",
-    padding: "10px"
+    color: "darkgray",
+    padding: "10px",
+    fontSize: "1.2em"
   }
 };
 

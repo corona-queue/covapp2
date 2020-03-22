@@ -20,6 +20,9 @@ const landingPageStyle = {
     maxWidth: "500px",
     margin: "10px auto 0"
   },
+  darker: {
+    backgroundColor: "rgba(50,50,50,0.4)"
+  },
   main: {
     background: "#FFFFFF",
     position: "relative",

@@ -49,12 +49,12 @@ const infoStyle = {
     color: grayColor,
     overflow: "hidden"
   },
-  title,
+  title: { ...title, fontSize: "1.3em" },
   description: {
     color: grayColor,
     overflow: "hidden",
     marginTop: "0px",
-    fontSize: "14px"
+    fontSize: "1em"
   },
   iconWrapperVertical: {
     float: "none"

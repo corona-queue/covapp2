@@ -22,11 +22,9 @@ Based on [CovApp](https://covapp.charite.de/).
   * Response im Dialog an
 >>>>>>> Adapt TODOs
 
-## TODOs
+* [Tamara] Aktuelle Position anzeigen
 
-* Startseite anpassen
-  * Use call back icon instead of call on start page (mit questionnaire color)
-  * Passt text noch?
+## TODOs
 
 * Small front-end for call-center
   * Kontaktinfos zuerst

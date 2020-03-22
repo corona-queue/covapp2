@@ -5,8 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Call from "@material-ui/icons/Call";
+import PhoneCallback from "@material-ui/icons/PhoneCallback";
 import Help from "@material-ui/icons/Help";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -28,45 +27,34 @@ export default function ProductSection() {
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Wie es funktioniert</h2>
           <h5 className={classes.description}>
-            Wir leiten dich durch mehrere Schritte; am Ende hast du alle
-            Informationen, die du brauchst, um entspannt durch den Testprozess
-            zu gehen.
+            Wir helfen dir dabei, einen Testtermin zu vereinbaren.
           </h5>
         </GridItem>
       </GridContainer>
       <div>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
+        <GridContainer justify="center">
+          <GridItem xs={10} sm={10} md={4}>
             <InfoArea
-              title="Beantworte einen Fragebogen"
-              description="Mit deinen Antworten hilfst du dabei, das Krankheitsrisiko einzuschätzen."
+              title="1. Beantworte einen Fragebogen"
+              description="Mit deinen Antworten hilfst du dem Gesundheitsamt dabei, deine Situation einzuschätzen."
               icon={Chat}
               iconColor="info"
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={10} sm={10} md={4}>
             <InfoArea
-              title="Vervollständige deine Informationen"
-              description="Um den Test möglichst schnell durchführen zu können, werden weitere Daten benötigt."
-              icon={VerifiedUser}
-              iconColor="success"
-              vertical
-            />
-          </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
-            <InfoArea
-              title="Setze dich mit den zuständigen Stellen in Verbindung"
-              description="Wir ermöglichen es dir, Kontakt mit den zuständigen Stellen aufzunehmen. Die eingegebenen Informationen werden direkt übermittelt."
-              icon={Call}
+              title="2. Nutze unseren Rückruf-Service"
+              description="Übermittle die Informationen aus dem Fragebogen an das zuständige Gesundheitsamt und lass dich zurückrufen."
+              icon={PhoneCallback}
               iconColor="rose"
               vertical
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={10} sm={10} md={4}>
             <InfoArea
-              title="Noch etwas unklar?"
-              description="Wir helfen dir die Informationen zu erhalten, die du brauchst."
+              title="3. Noch etwas unklar?"
+              description="Wir helfen dir dabei, die Informationen zu erhalten, die du brauchst."
               icon={Help}
               iconColor="gray"
               vertical
@@ -75,10 +63,11 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={12} style={{ marginTop: "24px" }}>
             <Button
               type="button"
-              color="success"
+              style={{ marginTop: "20px" }}
+              color="rose"
               onClick={() => history.push("/test")}
             >
-              Fragebogen starten
+              <span style={{ fontSize: "1.2em" }}>Fragebogen starten</span>
             </Button>
           </GridItem>
         </GridContainer>

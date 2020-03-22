@@ -51,28 +51,19 @@ export default function PageSetup(props) {
 const renderLargeHeader = classes => {
   return (
     <Parallax image={require("assets/img/virus_smaller.jpg")}>
-      <div className={classes.container}>
+      <div className={classNames(classes.container, classes.darker)}>
         <GridContainer>
           <GridItem>
             <div className={classes.brand}>
               <h1 className={classes.title}>Willkommen bei CoronaQueue</h1>
               <h3>
-                Wir sind dein Begleiter im Testprozess auf den COVID-19 Virus.
+                Wir begleiten dich während des Testprozesses auf den COVID-19
+                Virus.
               </h3>
               <h3>
-                CoronaQueue hat es sich zum Ziel gemacht, einen reibungslosen Ablauf
-                und Datenaustausch zwischen dir, den Teststätten,
-                Informationsstellen und Ärzten zu ermöglichen.
-              </h3>
-              <h3>
-                Based on{" "}
-                <a
-                  style={{ color: "white", textDecoration: "underline" }}
-                  href="https://covapp.charite.de/"
-                >
-                  CovApp
-                </a>{" "}
-                by Charité Berlin and data4life.
+                CoronaQueue hat es sich zum Ziel gemacht, einen reibungslosen
+                Ablauf und Datenaustausch zwischen dir, den Gesundheitsämern und
+                den Teststätten zu ermöglichen.
               </h3>
             </div>
           </GridItem>
