@@ -10,6 +10,7 @@ class QuestionTreeStore {
   loading = false;
   isSubmitting = false;
   submitted = [];
+  submitError = false;
   question = 0;
 
   // getting results
@@ -53,7 +54,7 @@ class QuestionTreeStore {
 
     if (this.questions.length === 0) return openQuestions;
 
-    //traversier den Baum und gib alle möglichen Fragen zurück, mit der aktuellen Fragekette
+    //traverse the tree and get all possible questions
     var pointer = this.questions[0];
     let i = 1000;
     openQuestions.push(pointer);
@@ -137,10 +138,10 @@ class QuestionTreeStore {
       .then(success => {
         this.isSubmitting = false;
         this.submitted = [...this.submitted, id];
-        console.log("Sucessful");
       })
       .catch(error => {
         this.isSubmitting = false;
+        this.submitError = true;
         console.error(error);
       });
   }
@@ -152,6 +153,8 @@ decorate(QuestionTreeStore, {
   loading: observable,
   question: observable,
   isSubmitting: observable,
+  submitted: observable,
+  submitError: observable,
   results: observable,
   loadingResults: observable,
   currentQuestion: computed,
