@@ -9,6 +9,13 @@ const styles = theme => ({
     "& > *": {
       margin: theme.spacing(2)
     }
+  },
+  progress: {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    heigth: 10,
+    width: "100%"
   }
 });
 

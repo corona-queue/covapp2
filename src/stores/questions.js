@@ -89,6 +89,16 @@ class QuestionTreeStore {
     return lastQuestionShowed && !!this.answers[lastQuestion.id];
   }
 
+  get progress() {
+    const lastQuestion = this.openQuestions[this.openQuestions.length - 1];
+    const answered = lastQuestion && !!this.answers[lastQuestion.id];
+    return (
+      ((this.questions.indexOf(lastQuestion) + (answered ? 1 : 0)) /
+        this.questions.length) *
+      100
+    );
+  }
+
   loadQuestions() {
     this.loading = true;
     getQuestions().then(questions => {
@@ -139,6 +149,7 @@ decorate(QuestionTreeStore, {
   loadingResults: observable,
   currentQuestion: computed,
   openQuestions: computed,
+  progress: computed,
   setPage: action,
   answer: action,
   loadQuestions: action,

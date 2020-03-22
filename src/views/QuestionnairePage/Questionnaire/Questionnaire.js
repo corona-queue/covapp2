@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from "react";
 
 import { useObserver } from "mobx-react-lite";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Question from "./Question";
@@ -9,6 +10,17 @@ import Final from "./Final";
 
 import QuestionsStore from "../../../stores/questions";
 import styles from "./styles";
+
+const BorderLinearProgress = withStyles({
+  root: {
+    height: 10,
+    background: "white"
+  },
+  bar: {
+    borderRadius: 20,
+    background: "linear-gradient(60deg, #ab47bc, #8e24aa)"
+  }
+})(LinearProgress);
 
 const useStyles = makeStyles(styles);
 
@@ -53,6 +65,12 @@ const Test = () => {
       {store.finished && <Final />}
 
       <div style={{ height: "100vh" }} />
+
+      <BorderLinearProgress
+        className={classes.progress}
+        variant="determinate"
+        value={store.progress}
+      />
     </div>
   ));
 };

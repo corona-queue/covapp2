@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -13,24 +13,18 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
-import { withRouter } from "react-router";
 
 import styles from "assets/jss/material-kit-react/views/questionnairePage.js";
 
 import Questionnaire from "./Questionnaire";
-import QuestionsStore from "../../stores/questions";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-const QuestionnairePage = props => {
-  const store = useContext(QuestionsStore);
+export default function QuestionnairePage(props) {
   const classes = useStyles();
-  const { match, ...rest } = props;
-
-  store.setQuestion(match.params.question);
-
+  const { ...rest } = props;
   return (
     <div>
       <Header
@@ -61,5 +55,3 @@ const QuestionnairePage = props => {
     </div>
   );
 }
-
-export default withRouter(QuestionnairePage);
