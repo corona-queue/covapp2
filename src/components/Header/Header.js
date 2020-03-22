@@ -87,7 +87,7 @@ export default function Header(props) {
       >
         <Warning style={{ margin: "4px" }} />
         Bitte beachten: Dies ist nur eine Testinstallation zu Demozwecken, es
-        werden keine Anfragen ans Gedunheitsamt weitergeleitet.
+        werden keine Anfragen ans Gesundheitsamt weitergeleitet.
       </div>
     </div>
   );

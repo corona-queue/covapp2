@@ -102,7 +102,7 @@ class QuestionTreeStore {
     const answered = lastQuestion && !!this.answers[lastQuestion.id];
     return (
       ((this.questions.indexOf(lastQuestion) + (answered ? 1 : 0)) /
-        this.questions.length) *
+        this.questions.filter(question => !question.hidden).length) *
       100
     );
   }
