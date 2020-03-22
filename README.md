@@ -10,8 +10,6 @@ Based on [CovApp](https://covapp.charite.de/).
 * The app will be available on your host system on `localhost:3000`
 
 ## Doing
-* [Jonathan] QR code generieren (gleiches Format wie CovApp?)
-  `<PATIENT><A>1</A><B>2</B><C>2</><D>2</D><E>2</E><Q>2</Q><R>2</R><T>2</T><U>2</U><W>2</W><X>2</X><Y>2</Y><Z>1</Z><A0>2</A0><A1>2</A1><A2>2</A2><A3>2</A3><B7>1</B7><B9>20200302</B9><A5>2</A5><A6>2</A6><A7>2</A7><A8>2</A8><A9>2</A9><B0>2</B0><B1>2</B1><B2>2</B2><B3>2</B3></PATIENT>`
 * [Tamara] Ticketing Dialog verbessern
   * Daten zum Review anzeigen, die geschickt werden sollen
   * Hübscher machen
