@@ -5,7 +5,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import ScrollMemory from "react-router-scroll-memory";
 
 import "assets/scss/material-kit-react.scss?v=1.8.0";
-import "assets/css/responsiveFontsize.css";
+import "assets/css/responsiveFontsize.scss";
 
 // pages for this product
 import StartPage from "views/StartPage/StartPage.js";
