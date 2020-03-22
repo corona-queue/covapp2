@@ -10,24 +10,25 @@ Based on [CovApp](https://covapp.charite.de/).
 * The app will be available on your host system on `localhost:3000`
 
 ## Doing
-<<<<<<< cb2fa4a8fe0a5371f0173eb521caf92373a7cf70
-* [Tamara] Ticketing Dialog verbessern
-  * Daten zum Review anzeigen, die geschickt werden sollen
-  * Hübscher machen
-  * Überprüfen, ob irgendein Lab schon requested wurde
-=======
 * [Tamara] Result page anpassen
-  * Route umbenennen (auch am Ende vom Fragebogen)
-  * Test infos in eigene Route
-  * Response im Dialog an
->>>>>>> Adapt TODOs
-
-* [Tamara] Aktuelle Position anzeigen
+  * Kontakt am Ende vom Fragebogen
+    * Success Text anpassen
+    * Weiterleitung zu "/result"
+  * Result Seite
+    * Welcome Text mit "wir melden uns"
+    * Übersendete Daten
+    * Position (mit refresh Button)
+    * "Wie geht es weiter, nachdem ich zurück gerufen wurde?" > "/nextsteps"
+      * Test infos in eigene Route
+      * QR Code in Labore (ohne "Termin vereinbaren")
+      * Weitere Fragen: Nummer von Info Hotline oder Link
 
 ## TODOs
 
 * Small front-end for call-center
   * Kontaktinfos zuerst
+  * Fragebogen
+  * Keine Weiterleitung nach Kontaktanfrage
 
 * Fragen filtern, wenn Baum nicht gesetzt ist
 
