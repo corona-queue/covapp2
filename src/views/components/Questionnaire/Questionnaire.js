@@ -17,7 +17,6 @@ const BorderLinearProgress = withStyles({
     background: "white"
   },
   bar: {
-    borderRadius: 20,
     background: "linear-gradient(60deg, #ab47bc, #8e24aa)"
   }
 })(LinearProgress);
