@@ -11,7 +11,6 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 // pages for this product
 import StartPage from "views/StartPage/StartPage.js";
 import QuestionnairePage from "views/QuestionnairePage/QuestionnairePage.js";
-import TestResultsPage from "views/TestResultsPage/TestResultsPage.js";
 import EndPage from "views/EndPage/EndPage.js";
 
 const browserHistory = createBrowserHistory();
@@ -33,7 +32,6 @@ ReactDOM.render(
       <Route path="/end" component={EndPage} />
       <Route path="/test/:question" component={QuestionnairePage} />
       <Route path="/test" component={RedirectToFirstQuestion} />
-      <Route path="/results" component={TestResultsPage} />
       <Route path="/" component={StartPage} />
     </Switch>
   </Router>,

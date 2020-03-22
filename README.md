@@ -10,25 +10,22 @@ Based on [CovApp](https://covapp.charite.de/).
 * The app will be available on your host system on `localhost:3000`
 
 ## Doing
-* [Micha] Fragebogen implementieren
 * [Jonathan] QR code generieren (gleiches Format wie CovApp?)
   `<PATIENT><A>1</A><B>2</B><C>2</><D>2</D><E>2</E><Q>2</Q><R>2</R><T>2</T><U>2</U><W>2</W><X>2</X><Y>2</Y><Z>1</Z><A0>2</A0><A1>2</A1><A2>2</A2><A3>2</A3><B7>1</B7><B9>20200302</B9><A5>2</A5><A6>2</A6><A7>2</A7><A8>2</A8><A9>2</A9><B0>2</B0><B1>2</B1><B2>2</B2><B3>2</B3></PATIENT>`
-* [Janusch] Report page (angabe der persönlichen daten (name, telephonnumer) + aufnahme in die ticket warteschlange via POST request)
 * [Tamara] Ticket flow
-  * Kontakt aufnehmen (REST service, verschiedene Stellen sollten möglich sein)
-    * requestBody zusammenbauen (nicht nur mocken)
+  * requestBody zusammenbauen (nicht nur mocken)
   * Results und Ticketing testen, wenn CORS eingestellt
+* [Tamara] Small front-end for Demo
+* [Tamara] Questionnaires mit PageSetup
+* [Tamara] Header: changeColorOnScroll, height in PageSetup setzen; Aus Header auf start routen
 
 ## TODOs
-* Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
-* Fragen mit Daten rendern
-* Fortschritt bei Fragebogen
-* Daten in Kontaktdialog zum Review anzeigen, die geschickt werden sollen
+* [BLOCKED] Auswertung des Fragebogens > welche Optionen werden danach angezeigt (benötigt Priosisierung)
+* [BLOCKED] Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
 * Kontrast erhöhen (hellgrauer kleiner Text)
-* Alles einheitlich stylen (fonts, PageSetup)
-* Aus Header auf start routen
-* Auswertung des Fragebogens > welche Optionen werden danach angezeigt (benötigt Priosisierung)
+* Alles einheitlich stylen (fonts, breiten)
 * Fehler und Warnings in Konsole beheben
+* Daten in Kontaktdialog zum Review anzeigen, die geschickt werden sollen
 
 # Future Work
 * Define different endpoints for Gesundheitsamt, Hotline, Labor Kalender (currently only one backend, so there is no need for it)
