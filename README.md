@@ -34,7 +34,11 @@ Based on [CovApp](https://covapp.charite.de/).
   * Alles einheitlich stylen (fonts, breiten) > Start und Result page
   * Kontrast erhöhen (hellgrauer kleiner Text)
   * Dunkler Hintergrund für Start Header Text
-
+  * Erklaertexte unter Fragen groesser und in kursiv
+  * Buttons mit grauem Kasten hervorheben
+  * Date Picker Dialog auf deutsch
+  * Duzen vs. Siezen vereinheitlichen
+  * Letzte Frage "Verstanden" unnoetig
 
 # Future Work
 * Kleinere Sachen
