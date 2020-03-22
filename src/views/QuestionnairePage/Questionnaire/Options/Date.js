@@ -6,17 +6,7 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import classNames from "classnames";
-
-import styles from "./styles.js";
-
-const useStyles = makeStyles(styles);
-
-const Option = ({ value, onSelectOption }) => {
-  const classes = useStyles();
-
+const Date = ({ value, onSelectOption }) => {
   return (
     <Grid
       container
@@ -43,4 +33,4 @@ const Option = ({ value, onSelectOption }) => {
   );
 };
 
-export default Option;
+export default Date;

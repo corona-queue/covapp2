@@ -8,8 +8,8 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
-import RadioOptions from "../Options";
-import DateInput from "../OptionsDate";
+import Radio from "../Options/Radio";
+import Date from "../Options/Date";
 
 import styles from "./styles.js";
 const useStyles = makeStyles(styles);
@@ -30,8 +30,8 @@ const Question = ({
     window.scrollTo({ top: y, behavior: "smooth" });
   }, [ref.current, currentAnswer]);
 
-  const Options = { radio: RadioOptions, date: DateInput }[inputType];
-  if (!Options) {
+  const InputComponent = { radio: Radio, date: Date }[inputType];
+  if (!InputComponent) {
     console.error("TODO implement question type");
     return null;
   }
@@ -45,8 +45,7 @@ const Question = ({
               <h4 ref={ref}>{headline}</h4>
             </CardHeader>
             <CardBody>
-              <Options
-                inputType={inputType}
+              <InputComponent
                 options={options}
                 onSelectOption={optionIndex => onSelectOption(id, optionIndex)}
                 value={currentAnswer}

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useObserver } from "mobx-react-lite";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -17,6 +18,8 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 
 import ContactInformation from "views/components/ContactInformation/ContactInformation";
+import ContactStore from "stores/contact";
+import QuestionsStore from "stores/questions";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import endSectionStyles from "./endSectionStyle";
@@ -28,7 +31,10 @@ const useStyles = makeStyles({ ...styles, ...endSectionStyles });
 
 export default function EndSection() {
   const classes = useStyles();
-  return (
+  const contactStore = useContext(ContactStore);
+  const questionStore = useContext(QuestionsStore);
+
+  return useObserver(() => (
     <div className={classes.small}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
@@ -64,7 +70,13 @@ export default function EndSection() {
               Wir leiten deine Informationen an das zuständige Gesundheitsamt
               weiter, sie werden dich zurückrufen.
             </p>
-            <Button type="button" color="success">
+            <Button
+              type="button"
+              color="success"
+              onClick={() =>
+                questionStore.submitAnswers(contactStore.requestBody)
+              }
+            >
               <PhoneCallback /> Rückruf vereinbaren
             </Button>
           </GridItem>
@@ -114,7 +126,7 @@ export default function EndSection() {
         </GridContainer>
       </div>
     </div>
-  );
+  ));
 }
 
 const renderLab = (lab, classes) => {

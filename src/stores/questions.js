@@ -1,6 +1,6 @@
 import { observable, action, decorate, runInAction, computed } from "mobx";
 import { createContext } from "react";
-import { get } from "./api";
+import { getQuestions, getResults, submitAnswers } from "./api";
 import routerStore from "./router";
 
 class QuestionTreeStore {
@@ -10,6 +10,10 @@ class QuestionTreeStore {
   loading = false;
   isSubmitting = false;
   question = 0;
+
+  // getting results
+  results = null;
+  loadingResults = false;
 
   constructor(routerStore) {
     this.routerStore = routerStore;
@@ -86,21 +90,34 @@ class QuestionTreeStore {
 
   loadQuestions() {
     this.loading = true;
-    get("").then(questions => {
+    getQuestions().then(questions => {
       this.questions = questions;
       this.loading = false;
     });
   }
 
-  submitAnswers() {
+  get requestBody() {
+    return { q01: "q01_option2", q02: "q02_option1" };
+  }
+
+  loadResults() {
+    this.loadingResults = true;
+    getResults(this.requestBody)
+      .then(results => {
+        this.results = results;
+        this.loadingResults = false;
+      })
+      .catch(() => {
+        this.loadingResults = false;
+      });
+  }
+
+  submitAnswers(contactInformation) {
     this.isSubmitting = true;
 
-    setTimeout(() => {
-      runInAction(() => {
-        console.log("Submitting answers");
-        this.isSubmitting = false;
-      });
-    }, 2000);
+    submitAnswers(contactInformation, this.requestBody)
+      .then(success => console.log("Sucessful"))
+      .catch(error => console.error(error));
   }
 }
 
@@ -110,6 +127,8 @@ decorate(QuestionTreeStore, {
   loading: observable,
   question: observable,
   isSubmitting: observable,
+  results: observable,
+  loadingResults: observable,
   currentQuestion: computed,
   openQuestions: computed,
   setPage: action,
@@ -117,7 +136,8 @@ decorate(QuestionTreeStore, {
   loadQuestions: action,
   submitAnswers: action,
   setQuestions: action,
-  nextQuestion: action
+  nextQuestion: action,
+  loadResults: action
 });
 
 export default createContext(new QuestionTreeStore(routerStore));
