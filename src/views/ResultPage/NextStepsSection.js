@@ -36,7 +36,6 @@ export default function NextStepsSection() {
   const store = useContext(QuestionsStore);
 
   return useObserver(() => {
-      // const answers = Object.assign({}, store.answers);
       const qrCodeString = "<PATIENT>"
           + Object.keys(store.answers).reduce((string, answerID) =>
               string + "<" + answerID + ">" + store.answers[answerID] + "</" + answerID + ">", "")
@@ -111,7 +110,7 @@ export default function NextStepsSection() {
                               lassen. Mach dir am besten einen Screenshot.
                           </p>
                           <p>
-                              <QRCode value={qrCodeString}/>
+                              <QRCode size={400} value={qrCodeString}/>
                           </p>
                       </GridItem>
                   </GridContainer>
