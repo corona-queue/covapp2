@@ -15,7 +15,7 @@ import styles from "./styles.js";
 const useStyles = makeStyles(styles);
 
 const Question = ({
-  question: { text: headline, comment, options, inputType, id },
+  question: { text: headline, comment, options, inputType, id, hidden },
   onSelectOption,
   currentAnswer
 }) => {
@@ -37,7 +37,7 @@ const Question = ({
     return null;
   }
 
-  return (
+  return hidden ? null : (
     <GridContainer justify="center">
       <GridItem xs={12} sm={12} md={9}>
         <Card>

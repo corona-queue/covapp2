@@ -49,7 +49,7 @@ const RegularButton = React.forwardRef((props, ref) => {
   });
   return (
     <Button {...rest} ref={ref} className={btnClasses}>
-      {children}
+      <span style={{ fontSize: "1.2em" }}>{children}</span>
     </Button>
   );
 });

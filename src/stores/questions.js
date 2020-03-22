@@ -88,9 +88,13 @@ class QuestionTreeStore {
   }
 
   get finished() {
-    const lastQuestion = this.questions[this.questions.length - 1];
-    const lastQuestionShowed = this.openQuestions.indexOf(lastQuestion) > 0;
-    return lastQuestionShowed && !!this.answers[lastQuestion.id];
+    const visibleQuestions = this.openQuestions.filter(
+      question => !question.hidden
+    );
+    const allAnswered = visibleQuestions.every(
+      question => !!this.answers[question.id]
+    );
+    return visibleQuestions.length > 0 && allAnswered;
   }
 
   get progress() {
@@ -131,13 +135,14 @@ class QuestionTreeStore {
       });
   }
 
-  submitAnswers(id, contactInformation) {
+  submitAnswers(id, contactInformation, afterSubmit) {
     this.isSubmitting = true;
 
     submitAnswers(contactInformation, this.answers)
       .then(success => {
         this.isSubmitting = false;
         this.submitted = [...this.submitted, id];
+        afterSubmit();
       })
       .catch(error => {
         this.isSubmitting = false;

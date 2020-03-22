@@ -67,7 +67,7 @@ export default function ProductSection() {
               color="rose"
               onClick={() => history.push("/test")}
             >
-              <span style={{ fontSize: "1.2em" }}>Fragebogen starten</span>
+              Fragebogen starten
             </Button>
           </GridItem>
         </GridContainer>

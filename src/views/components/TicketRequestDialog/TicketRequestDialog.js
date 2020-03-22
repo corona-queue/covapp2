@@ -16,7 +16,7 @@ export default props => {
   const contactStore = useContext(ContactStore);
   const questionStore = useContext(QuestionsStore);
 
-  const { title, close, id, warning } = props;
+  const { title, text, close, id, warning, afterSubmit } = props;
 
   return useObserver(() => {
     const disabled =
@@ -29,19 +29,17 @@ export default props => {
       <Dialog open={true}>
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Überprüfe und vervollständige bitte deine Kontaktinformationen:
-          </DialogContentText>
+          {warning && (
+            <DialogContentText style={{ marginTop: "16px" }}>
+              {warning}
+            </DialogContentText>
+          )}
+          {text && <DialogContentText>{text}</DialogContentText>}
           <ContactInformation showRequired={true} />
-          <DialogContentText style={{ marginTop: "16px" }}>
-            {warning}
-          </DialogContentText>
           <DialogContentText style={{ marginTop: "16px" }}>
             {questionStore.submitted.includes(id) ? (
               <span>
-                <b>Deine Anfrage ist eingegangen.</b> Bleib bitte geduldig,
-                aufgrund der hohen Anzahl von Anfragen kann es bis zu drei Tagen
-                dauern, bis du eine Rückmeldung erhälst.
+                <b>Deine Anfrage ist eingegangen.</b>
               </span>
             ) : questionStore.isSubmitting ? (
               "Deine Anfrage wird gesendet..."
@@ -68,7 +66,12 @@ export default props => {
             onClick={
               disabled
                 ? () => {}
-                : () => questionStore.submitAnswers(id, contactStore.meta)
+                : () =>
+                    questionStore.submitAnswers(
+                      id,
+                      contactStore.meta,
+                      afterSubmit
+                    )
             }
             color="primary"
           >
