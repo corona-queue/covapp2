@@ -11,9 +11,6 @@ Based on [CovApp](https://covapp.charite.de/).
 
 ## Doing
 * [Tamara] Result page anpassen
-  * Kontakt am Ende vom Fragebogen
-    * Success Text anpassen
-    * Weiterleitung zu "/result"
   * Result Seite
     * Welcome Text mit "wir melden uns"
     * Übersendete Daten

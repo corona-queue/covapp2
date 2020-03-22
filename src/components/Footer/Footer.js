@@ -47,6 +47,12 @@ export default function Footer(props) {
           </a>{" "}
           by Charité Berlin and data4life, enhanced by the CoronaQueue team at
           #WirVsVirusHackathon.
+          <br />
+          Show created tickets on{" "}
+          <a className={aClasses} href="https://zammad.coronaqueue.de/">
+            https://zammad.coronaqueue.de/
+          </a>
+          .
         </div>
       </div>
     </footer>
