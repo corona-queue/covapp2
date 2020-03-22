@@ -28,6 +28,7 @@ const Question = ({
     const y =
       ref.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: "smooth" });
+    // eslint-disable-next-line
   }, [ref.current, currentAnswer]);
 
   const InputComponent = { radio: Radio, date: Date }[inputType];

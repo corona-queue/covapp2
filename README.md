@@ -16,6 +16,7 @@ Based on [CovApp](https://covapp.charite.de/).
 ## TODOs
 * Namen auf corona queue
 * [Tamara] Ticketing result testen, status anzeigen (GGf. fett machen)
+
 * [MAYBE] Small front-end for Demo
 
 * Fragen filtern, wenn Baum nicht gesetzt ist

@@ -67,6 +67,7 @@ class QuestionTreeStore {
         let nextQuestionId = pointer.nextQuestionMap[optionIndex];
         pointer = this.questions.find(q => q.id === nextQuestionId);
       } else if (pointer.nextQuestionMap) {
+        // eslint-disable-next-line
         pointer = this.questions.find(q => q.id === pointer.nextQuestionMap);
       } else {
         let nextQuestionIndex = this.questions.indexOf(pointer);
