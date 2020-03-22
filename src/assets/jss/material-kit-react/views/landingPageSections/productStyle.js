@@ -1,4 +1,4 @@
-import { title } from "assets/jss/material-kit-react.js";
+import { title, grayColor } from "assets/jss/material-kit-react.js";
 
 const productStyle = {
   section: {
@@ -22,7 +22,7 @@ const productStyle = {
     padding: "10px"
   },
   description: {
-    color: "darkgray",
+    color: grayColor,
     padding: "10px",
     fontSize: "1.2em"
   }
