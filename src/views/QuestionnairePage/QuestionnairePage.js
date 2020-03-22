@@ -6,13 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 
-// core components
-import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
-import Parallax from "components/Parallax/Parallax.js";
+import PageSetup from "views/PageSetup";
 
 import styles from "assets/jss/material-kit-react/views/questionnairePage.js";
 
@@ -27,31 +21,12 @@ export default function QuestionnairePage(props) {
   const { ...rest } = props;
   return (
     <div>
-      <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        brand="Covid-19 Test"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 100,
-          color: "white"
-        }}
-        {...rest}
-      />
-      <Parallax small filter image={require("assets/img/landing-bg.jpg")}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Fragebogen: Risikoeinschätzung</h1>
-            </GridItem>
-          </GridContainer>
+      <PageSetup>
+        <div className={classes.raised}>
+          <div style={{ height: "50px" }} />
+          <Questionnaire />
         </div>
-      </Parallax>
-      <div className={classes.raised}>
-        <Questionnaire />
-      </div>
-      <Footer />
+      </PageSetup>
     </div>
   );
 }

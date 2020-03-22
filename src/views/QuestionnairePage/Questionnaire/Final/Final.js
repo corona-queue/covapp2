@@ -31,7 +31,7 @@ const Final = ({ onClick }) => {
               <Grid container justify="space-around">
                 <Button
                   size="large"
-                  color="primary"
+                  color="standard"
                   variant="contained"
                   onClick={() => history.push("/end")}
                 >

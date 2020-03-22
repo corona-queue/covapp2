@@ -16,7 +16,6 @@ Based on [CovApp](https://covapp.charite.de/).
   * requestBody zusammenbauen (nicht nur mocken)
   * Results und Ticketing testen, wenn CORS eingestellt
 * [Tamara] Small front-end for Demo
-* [Tamara] Questionnaires mit PageSetup
 * [Tamara] Header: changeColorOnScroll, height in PageSetup setzen; Aus Header auf start routen
 
 ## TODOs
