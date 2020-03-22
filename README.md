@@ -15,16 +15,17 @@ Based on [CovApp](https://covapp.charite.de/).
 * [Tamara] Ticket flow
   * requestBody zusammenbauen (nicht nur mocken)
   * Results und Ticketing testen, wenn CORS eingestellt
-* [Tamara] Small front-end for Demo
-* [Tamara] Header: changeColorOnScroll, height in PageSetup setzen; Aus Header auf start routen
 
 ## TODOs
 * [BLOCKED] Auswertung des Fragebogens > welche Optionen werden danach angezeigt (benötigt Priosisierung)
-* [BLOCKED] Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
-* Kontrast erhöhen (hellgrauer kleiner Text)
-* Alles einheitlich stylen (fonts, breiten)
+
 * Fehler und Warnings in Konsole beheben
+* Kontrast erhöhen (hellgrauer kleiner Text)
+* Small front-end for Demo
+* Dunkler Hintergrund für Start Header Text
+* Alles einheitlich stylen (fonts, breiten)
 * Daten in Kontaktdialog zum Review anzeigen, die geschickt werden sollen
+* [BLOCKED] Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
 
 # Future Work
 * Define different endpoints for Gesundheitsamt, Hotline, Labor Kalender (currently only one backend, so there is no need for it)

@@ -60,7 +60,12 @@ export default function Header(props) {
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
-  const brandComponent = <Button className={classes.title}>{brand}</Button>;
+  const onClick = props.onBrandClick || (() => {});
+  const brandComponent = (
+    <Button onClick={onClick} className={classes.title}>
+      {brand}
+    </Button>
+  );
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>

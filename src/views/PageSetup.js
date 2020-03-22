@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react components for routing our app without refresh
@@ -19,15 +20,17 @@ const useStyles = makeStyles(styles);
 
 export default function PageSetup(props) {
   const classes = useStyles();
+  const history = useHistory();
   const { ...rest } = props;
   return (
     <div>
       <Header
         brand="CovApp2"
+        onBrandClick={() => history.push("/")}
         fixed
         color="transparent"
         changeColorOnScroll={{
-          height: 400,
+          height: 100,
           color: "white"
         }}
         {...rest}
