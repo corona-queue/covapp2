@@ -107,13 +107,9 @@ class QuestionTreeStore {
     });
   }
 
-  get requestBody() {
-    return { q01: "q01_option2", q02: "q02_option1" };
-  }
-
   loadResults() {
     this.loadingResults = true;
-    getResults(this.requestBody)
+    getResults(this.answers)
       .then(results => {
         this.results = results;
         this.loadingResults = false;
@@ -126,7 +122,7 @@ class QuestionTreeStore {
   submitAnswers(id, contactInformation) {
     this.isSubmitting = true;
 
-    submitAnswers(contactInformation, this.requestBody)
+    submitAnswers(contactInformation, this.answers)
       .then(success => {
         this.isSubmitting = false;
         this.submitted = [...this.submitted, id];

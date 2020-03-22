@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useObserver } from "mobx-react-lite";
+// nodejs library that concatenates classes
+import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -19,24 +21,29 @@ export default props => {
     store.loadResults();
   }, {});
 
-  return useObserver(() => (
-    <div className={classes.small}>
-      <GridContainer justify="center">
-        <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Ergebnisse</h2>
-          {store.loadingResults ? (
-            "Loading results..."
-          ) : (
-            <h5 className={classes.description}>
-              {store.results === null ? (
-                <p style={{ color: "red" }}>Es ist ein Fehler aufgetreten</p>
-              ) : (
-                "TODO: Ergebnis darstellen"
-              )}
-            </h5>
-          )}
-        </GridItem>
-      </GridContainer>
-    </div>
-  ));
+  return useObserver(() => {
+    const colors = {
+      error: "red"
+    };
+    const texts = {
+      loading: "Ergebnisse laden...",
+      error: "Es ist ein Fehler aufgetreten"
+    };
+    const status = store.loadingResults
+      ? "loading"
+      : store.results === null
+      ? "error"
+      : "loaded";
+    return (
+      <div className={classNames(classes.small, classes.shrinkBottom)}>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
+            <h3 style={{ color: colors[status] || "auto" }}>
+              {texts[status] || "TODO: Ergebnis darstellen"}
+            </h3>
+          </GridItem>
+        </GridContainer>
+      </div>
+    );
+  });
 };

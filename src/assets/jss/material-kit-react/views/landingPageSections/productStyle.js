@@ -10,6 +10,9 @@ const productStyle = {
     paddingBottom: "70px",
     textAlign: "center"
   },
+  shrinkBottom: {
+    paddingBottom: "0px"
+  },
   title: {
     ...title,
     marginBottom: "1rem",

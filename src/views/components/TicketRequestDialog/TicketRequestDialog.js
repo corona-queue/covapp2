@@ -52,8 +52,7 @@ export default props => {
             onClick={
               disabled
                 ? () => {}
-                : () =>
-                    questionStore.submitAnswers(id, contactStore.requestBody)
+                : () => questionStore.submitAnswers(id, contactStore.meta)
             }
             color="primary"
           >

@@ -14,7 +14,7 @@ class ContactStore {
     return this[attribute];
   }
 
-  get requestBody() {
+  get meta() {
     const { firstname, lastname, phone } = this;
     return { firstname, lastname, phone };
   }
@@ -24,7 +24,7 @@ decorate(ContactStore, {
   firstname: observable,
   lastname: observable,
   phone: observable,
-  requestBody: computed,
+  meta: computed,
   getAttribute: action,
   setAttribute: action
 });
