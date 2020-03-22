@@ -43,7 +43,7 @@ const signupPageStyle = {
     marginLeft: "20px",
     marginRight: "20px",
     marginTop: "-40px",
-    padding: "20px 0",
+    padding: "20px",
     marginBottom: "15px"
   },
   socialIcons: {

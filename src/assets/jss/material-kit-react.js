@@ -140,7 +140,7 @@ const cardActions = {
 };
 
 const cardHeader = {
-  margin: "-30px 15px 0",
+  margin: "-30px 15px 15px 15px",
   borderRadius: "3px",
   padding: "15px"
 };

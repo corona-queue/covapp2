@@ -51,15 +51,13 @@ const Test = () => {
 
       {!store.loading &&
         store.openQuestions.map((question, i) => (
-          <div key={question.id}>
-            <Question
-              question={question}
-              currentAnswer={store.answers[question.id]}
-              onSelectOption={(question, option) =>
-                store.answer(question, option)
-              }
-            />
-          </div>
+          <Question
+            question={question}
+            currentAnswer={store.answers[question.id]}
+            onSelectOption={(question, option) =>
+              store.answer(question, option)
+            }
+          />
         ))}
 
       {store.finished && <Final />}
