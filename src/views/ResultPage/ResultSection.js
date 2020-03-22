@@ -17,9 +17,12 @@ export default props => {
   const classes = useStyles();
   const store = useContext(QuestionsStore);
 
+  // Disable eslint to show missing store dependency
+  /*eslint-disable react-hooks/exhaustive-deps*/
   useEffect(() => {
     store.loadResults();
-  }, {});
+  }, []);
+  /*eslint-enable react-hooks/exhaustive-deps*/
 
   return useObserver(() => {
     const colors = {

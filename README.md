@@ -12,32 +12,51 @@ Based on [CovApp](https://covapp.charite.de/).
 ## Doing
 * [Jonathan] QR code generieren (gleiches Format wie CovApp?)
   `<PATIENT><A>1</A><B>2</B><C>2</><D>2</D><E>2</E><Q>2</Q><R>2</R><T>2</T><U>2</U><W>2</W><X>2</X><Y>2</Y><Z>1</Z><A0>2</A0><A1>2</A1><A2>2</A2><A3>2</A3><B7>1</B7><B9>20200302</B9><A5>2</A5><A6>2</A6><A7>2</A7><A8>2</A8><A9>2</A9><B0>2</B0><B1>2</B1><B2>2</B2><B3>2</B3></PATIENT>`
-* [Tamara] Ticket flow: Results und Ticketing testen, wenn CORS eingestellt
-* [Tamara] Fehler und Warnings in Konsole beheben
+* [Tamara] Ticketing Dialog verbessern
+  * Status anzeigen (GGf. fett machen)
+  * Disable wenn submitting
+  * Daten zum Review anzeigen, die geschickt werden sollen
+  * Hübscher machen
 
 ## TODOs
+
+* [MAYBE] Small front-end for Demo
+
 * [BLOCKED] Auswertung des Fragebogens
   * Ergebnis anzeigen
   * Welche Optionen werden danach angezeigt (benötigt Priosisierung)
 
-* [Tamara] Check errors in console
-* Result Seite stylen
-* Kontrast erhöhen (hellgrauer kleiner Text)
-* Small front-end for Demo
-* Dunkler Hintergrund für Start Header Text
-* Alles einheitlich stylen (fonts, breiten)
-* Daten in Kontaktdialog zum Review anzeigen, die geschickt werden sollen
-* Check remaining warnings
-* [Micha] Check "eqeqeq" warnings
+* Fragen filtern, wenn Baum nicht gesetzt ist
+
+* Styling collection
+  * Use questionnaire color at more places
+  * Use call back icon instead of call on start page
+  * Style appointment buttons on result page
+  * Alles einheitlich stylen (fonts, breiten) > Start und Result page
+  * Kontrast erhöhen (hellgrauer kleiner Text)
+  * Dunkler Hintergrund für Start Header Text
+
 * [BLOCKED] Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
 
 # Future Work
-* Define different endpoints for Gesundheitsamt, Hotline, Labor Kalender (currently only one backend, so there is no need for it)
-* Tatsächlich verhindern, dass pro Nutzer nur eine Anfrage pro Typ abgegeben werden kann (bisher kann man einfach neu laden)
-* Datums-Fragen
-  * im Questionnaire abfangen, wenn alle Fragen auf die es sich bezieht negativ beantwortet wurden
-  * nicht mit zukünftigen Daten beantworten können
+* Kleinere Sachen
+  * Responsive design hübsch machen
+    * Header auf Startseite zu groß
+    * Seitenabstände von Text
+  * Tatsächlich verhindern, dass pro Nutzer nur eine Anfrage pro Typ abgegeben werden kann (bisher kann man einfach neu laden)
+  * Datums-Fragen
+    * im Questionnaire abfangen, wenn alle Fragen auf die es sich bezieht negativ beantwortet wurden
+    * nicht mit zukünftigen Daten beantworten können
+    * Timestamp ohne Time, nur Datum
 
+* Define different endpoints for Gesundheitsamt, Hotline, Labor Kalender (currently only one backend, so there is no need for it)
+* QR Code wie in CovApp erstellen (brauchen ein Mapping zwischen App <> QR Question IDs und App <> QR Werten)
+* Anzeige von Laboren verbessern
+  * Standort-basiert oder Adresse angeben
+  * Maps Karte
+  * Labs Liste erweitern/automatisch crawlen
+  * Angezeite Labs nach Standort filtern
+  * Prozess nach Bundesland: Kann ich überhaupt direkt zum Test Center?
 
 
 

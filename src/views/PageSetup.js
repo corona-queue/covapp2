@@ -23,7 +23,7 @@ export default function PageSetup(props) {
   return (
     <div>
       <Header
-        brand="CovApp2"
+        brand="CoronaQueue"
         onBrandClick={() => history.push("/")}
         fixed
         color="transparent"
@@ -55,12 +55,12 @@ const renderLargeHeader = classes => {
         <GridContainer>
           <GridItem>
             <div className={classes.brand}>
-              <h1 className={classes.title}>Willkommen bei CovApp2</h1>
+              <h1 className={classes.title}>Willkommen bei CoronaQueue</h1>
               <h3>
                 Wir sind dein Begleiter im Testprozess auf den COVID-19 Virus.
               </h3>
               <h3>
-                CovApp2 hat es sich zum Ziel gemacht, einen reibungslosen Ablauf
+                CoronaQueue hat es sich zum Ziel gemacht, einen reibungslosen Ablauf
                 und Datenaustausch zwischen dir, den Teststätten,
                 Informationsstellen und Ärzten zu ermöglichen.
               </h3>

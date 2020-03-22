@@ -9,19 +9,19 @@
 2.2 Login
 3. Startseite (Greeting, zeigt Prozess oder Fragen und aktuellen Status)
 
-Hallo, willkommen bei CovApp2
+Hallo, willkommen bei CoronaQueue
 
 Wir lassen dich mit COVID-19 nicht allein.
 Wir unterstützen Labore und Gesundheitsämter durch einen vereinfachten Informationsfluss.
 Wir  informieren über Fallzahlen und Verbreitung.
 
-Diese Fragen kann dir CovApp2 beantworten
+Diese Fragen kann dir CoronaQueue beantworten
 * Gehöre ich zu einer Risikogruppe?
 * Wie sollte ich mich verhalten, sollte ich mich testen lassen?
 * Wie läuft ein Test in meinem Fall ab?
 * Wie ist der Status meines Tests?
 
-Das bietet CovApp2
+Das bietet CoronaQueue
 * Erfasse deine Daten: Ob spezifisch für COVID-19, Kontaktdaten für den Test oder Kontaktpersonen — sammle alle relevanten Informationen an einem Platz
 * Vereinbare einen Termin um dich testen zu lassen: Finde Labore in deiner Nähe oder vereinbare einen Hausbesuch, wenn es deine Situation erfordert
 * Verkürze die Zeit für dich und Labore: Teile deine Informationen, verhindere dadurch lange Wartezeiten und ermögliche einen reibungslosen Testablauf
@@ -38,7 +38,7 @@ Prozess:
 3. Status einsehen (“DHL”)
 4. Aktuelle Informationen bzw. Handlungsempfehlungen
 
-Zusätzlich ggf. Kontakte hinzufügen, die auch CovApp2 nutzen (interner Abgleich wer positiv getestet wurde)
+Zusätzlich ggf. Kontakte hinzufügen, die auch CoronaQueue nutzen (interner Abgleich wer positiv getestet wurde)
 
 Am Ende: QR code, der alle Daten zusammenfasst
 
