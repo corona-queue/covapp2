@@ -10,30 +10,35 @@ Based on [CovApp](https://covapp.charite.de/).
 * The app will be available on your host system on `localhost:3000`
 
 ## Doing
+<<<<<<< cb2fa4a8fe0a5371f0173eb521caf92373a7cf70
 * [Tamara] Ticketing Dialog verbessern
   * Daten zum Review anzeigen, die geschickt werden sollen
   * Hübscher machen
   * Überprüfen, ob irgendein Lab schon requested wurde
+=======
+* [Tamara] Result page anpassen
+  * Route umbenennen (auch am Ende vom Fragebogen)
+  * Test infos in eigene Route
+  * Response im Dialog an
+>>>>>>> Adapt TODOs
 
 ## TODOs
 
-* [MAYBE] Small front-end for Demo
+* Startseite anpassen
+  * Use call back icon instead of call on start page (mit questionnaire color)
+  * Passt text noch?
 
-* [BLOCKED] Auswertung des Fragebogens
-  * Ergebnis anzeigen
-  * Welche Optionen werden danach angezeigt (benötigt Priosisierung)
+* Small front-end for call-center
+  * Kontaktinfos zuerst
 
 * Fragen filtern, wenn Baum nicht gesetzt ist
 
 * Styling collection
   * Use questionnaire color at more places
-  * Use call back icon instead of call on start page
-  * Style appointment buttons on result page
   * Alles einheitlich stylen (fonts, breiten) > Start und Result page
   * Kontrast erhöhen (hellgrauer kleiner Text)
   * Dunkler Hintergrund für Start Header Text
 
-* [BLOCKED] Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
 
 # Future Work
 * Kleinere Sachen
