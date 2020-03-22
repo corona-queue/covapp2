@@ -28,9 +28,12 @@ const Test = () => {
   const store = useContext(QuestionsStore);
   const classes = useStyles();
 
+  // Disable eslint to show missing store dependency
+  /*eslint-disable react-hooks/exhaustive-deps*/
   useEffect(() => {
     store.loadQuestions();
   }, []);
+  /*eslint-enable react-hooks/exhaustive-deps*/
 
   return useObserver(() => (
     <div className={classes.root}>

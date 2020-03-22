@@ -25,7 +25,7 @@ class QuestionTreeStore {
   }
 
   get currentQuestion() {
-    if (this.questions.length == 0) {
+    if (this.questions.length === 0) {
       return null;
     }
     return this.questions[this.question];
@@ -33,7 +33,7 @@ class QuestionTreeStore {
 
   getQuestionIndexById(id) {
     for (var i = 0; i < this.questions.length; i++) {
-      if (this.questions[i].id == id) {
+      if (this.questions[i].id === id) {
         return i;
       }
     }
@@ -41,7 +41,7 @@ class QuestionTreeStore {
   }
 
   answer(question, option) {
-    const answeredQuestion = this.questions.find(q => q.id == question);
+    const answeredQuestion = this.questions.find(q => q.id === question);
     this.answers = {
       ...this.answers,
       [answeredQuestion.id]: option
@@ -61,11 +61,13 @@ class QuestionTreeStore {
       let answered = this.answers[pointer.id];
       if (Array.isArray(pointer.nextQuestionMap)) {
         let pointerOption = this.answers[pointer.id];
-        let optionIndex = pointer.options.findIndex(o => o.id == pointerOption);
+        let optionIndex = pointer.options.findIndex(
+          o => o.id === pointerOption
+        );
         let nextQuestionId = pointer.nextQuestionMap[optionIndex];
-        pointer = this.questions.find(q => q.id == nextQuestionId);
+        pointer = this.questions.find(q => q.id === nextQuestionId);
       } else if (pointer.nextQuestionMap) {
-        pointer = this.questions.find(q => q.id == pointer.nextQuestionMap);
+        pointer = this.questions.find(q => q.id === pointer.nextQuestionMap);
       } else {
         let nextQuestionIndex = this.questions.indexOf(pointer);
         pointer =

@@ -33,9 +33,10 @@ const Radio = ({ options, value, onSelectOption }) => {
           answer_unknown: HelpOutline
         }[id];
         Icon =
-          Icon || (id == value ? RadioButtonChecked : RadioButtonUncheckedIcon);
+          Icon ||
+          (id === value ? RadioButtonChecked : RadioButtonUncheckedIcon);
 
-        const selected = value == id;
+        const selected = value === id;
 
         return (
           <Button

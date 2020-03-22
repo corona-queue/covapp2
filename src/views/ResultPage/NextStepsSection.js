@@ -26,7 +26,7 @@ import QRCode from "qrcode.react";
 
 const useStyles = makeStyles({ ...styles, ...sectionStyles });
 
-export default function EndSection() {
+export default function NextStepsSection() {
   const classes = useStyles();
 
   const [requestingTicket, requestTicket] = useState(false);
@@ -108,7 +108,7 @@ export default function EndSection() {
           </GridItem>
         </GridContainer>
         <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={8}>
+          <GridItem xs={10} sm={10} md={8}>
             <h5 className={classes.title}>Wer führt Tests durch?</h5>
             <p className={classes.description}>
               Wenn du von deinem Arzt oder offiziellen Stellen an kein
@@ -154,7 +154,7 @@ export default function EndSection() {
 
 const renderLab = (lab, requestTicket, classes) => {
   return (
-    <ExpansionPanel>
+    <ExpansionPanel key={lab.name}>
       <ExpansionPanelSummary expandIcon={<ExpandMore />}>
         <b>{lab.location}</b>
       </ExpansionPanelSummary>
@@ -170,7 +170,7 @@ const renderLab = (lab, requestTicket, classes) => {
           <div>
             <Button
               type="button"
-              color="standard"
+              color="default"
               onClick={() =>
                 requestTicket({
                   who: lab.name,
