@@ -10,6 +10,7 @@ class QuestionTreeStore {
   loading = false;
   isSubmitting = false;
   submitted = [];
+  submitError = false;
   question = 0;
 
   // getting results
@@ -119,7 +120,6 @@ class QuestionTreeStore {
       }),
       {}
     );
-    console.log(this.answers, answers);
     getResults(answers)
       .then(results => {
         this.results = results;
@@ -137,10 +137,10 @@ class QuestionTreeStore {
       .then(success => {
         this.isSubmitting = false;
         this.submitted = [...this.submitted, id];
-        console.log("Sucessful");
       })
       .catch(error => {
         this.isSubmitting = false;
+        this.submitError = true;
         console.error(error);
       });
   }
@@ -152,6 +152,8 @@ decorate(QuestionTreeStore, {
   loading: observable,
   question: observable,
   isSubmitting: observable,
+  submitted: observable,
+  submitError: observable,
   results: observable,
   loadingResults: observable,
   currentQuestion: computed,

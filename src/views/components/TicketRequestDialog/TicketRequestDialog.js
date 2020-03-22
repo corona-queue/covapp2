@@ -16,30 +16,46 @@ export default props => {
   const contactStore = useContext(ContactStore);
   const questionStore = useContext(QuestionsStore);
 
-  const { who, what, outcome, close, id, warning } = props;
+  const { title, close, id, warning } = props;
 
   return useObserver(() => {
     const disabled =
       contactStore.firstname === "" ||
       contactStore.lastname === "" ||
       contactStore.phone === "" ||
+      questionStore.isSubmitting ||
       questionStore.submitted.includes(id);
     return (
       <Dialog open={true}>
-        <DialogTitle>{`${what} ${who}`}</DialogTitle>
+        <DialogTitle>{title}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Um einen {outcome} zu vereinbaren, vervollständige und überprüfe
-            bitte deine Kontaktinformationen:
+            Überprüfe und vervollständige bitte deine Kontaktinformationen:
           </DialogContentText>
           <ContactInformation showRequired={true} />
           <DialogContentText style={{ marginTop: "16px" }}>
-            {warning}{" "}
-            {questionStore.submitted.includes(id)
-              ? "Deine Anfrage ist eingegangen.  Aufgrund der hohen Anfrage kann es bis zu zwei Tagen dauern, dass du eine Rückmeldung erhälst."
-              : questionStore.isSubmitting
-              ? "Deine Anfrage wird gesendet..."
-              : ""}
+            {warning}
+          </DialogContentText>
+          <DialogContentText style={{ marginTop: "16px" }}>
+            {questionStore.submitted.includes(id) ? (
+              <span>
+                <b>Deine Anfrage ist eingegangen.</b> Bleib bitte geduldig,
+                aufgrund der hohen Anzahl von Anfragen kann es bis zu drei Tagen
+                dauern, bis du eine Rückmeldung erhälst.
+              </span>
+            ) : questionStore.isSubmitting ? (
+              "Deine Anfrage wird gesendet..."
+            ) : questionStore.submitError ? (
+              <span>
+                <b style={{ color: "darkred" }}>
+                  Es ist ein Fehler aufgetreten.
+                </b>{" "}
+                Versuche es bitte erneut oder setze dich mit unserem Support in
+                Verbindung.
+              </span>
+            ) : (
+              ""
+            )}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
