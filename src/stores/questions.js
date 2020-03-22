@@ -119,7 +119,7 @@ class QuestionTreeStore {
       }),
       {}
     );
-    console.log(this.answers, answers);
+
     getResults(answers)
       .then(results => {
         this.results = results;

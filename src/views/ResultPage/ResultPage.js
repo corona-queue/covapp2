@@ -4,7 +4,7 @@ import NextStepsSection from "./NextStepsSection";
 
 export default props => {
   return (
-    <PageSetup>
+    <PageSetup hideBackground={true}>
       <NextStepsSection />
     </PageSetup>
   );
