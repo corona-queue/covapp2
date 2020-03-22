@@ -22,12 +22,7 @@ Based on [CovApp](https://covapp.charite.de/).
 
 ## TODOs
 
-* Small front-end for call-center
-  * Kontaktinfos zuerst
-  * Fragebogen
-  * Keine Weiterleitung nach Kontaktanfrage
-
-* Fragen filtern, wenn Baum nicht gesetzt ist
+* Callcenter Flow: Redirect to new ticket
 
 * Styling collection
   * Use questionnaire color at more places

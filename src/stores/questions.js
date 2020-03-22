@@ -56,6 +56,18 @@ class QuestionTreeStore {
     };
   }
 
+  get filteredAnswers() {
+    // Reconstruct question path from given answers (see this.openQuestions)
+    const validQuestionIds = this.openQuestions.map(question => question.id);
+
+    let answers = {}
+    for (let questionId of validQuestionIds) {
+      answers[questionId] = this.answers[questionId];
+    }
+
+    return answers;
+  }
+
   get openQuestions() {
     var openQuestions = [];
 
@@ -145,7 +157,7 @@ class QuestionTreeStore {
   submitAnswers(id, contactInformation, afterSubmit) {
     this.isSubmitting = true;
 
-    submitAnswers(contactInformation, this.answers)
+    submitAnswers(contactInformation, this.filteredAnswers)
       .then(success => {
         this.isSubmitting = false;
         this.submitted = [...this.submitted, id];
@@ -170,6 +182,7 @@ decorate(QuestionTreeStore, {
   results: observable,
   loadingResults: observable,
   currentQuestion: computed,
+  filteredAnswers: computed,
   finished: computed,
   openQuestions: computed,
   progress: computed,
