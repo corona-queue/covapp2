@@ -30,6 +30,7 @@ const Final = ({ onClick }) => {
       {requestingTicket && (
         <TicketRequestDialog
           {...requestingTicket}
+          open={true}
           close={() => requestTicket(false)}
         />
       )}

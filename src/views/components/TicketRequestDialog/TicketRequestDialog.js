@@ -16,7 +16,7 @@ export default props => {
   const contactStore = useContext(ContactStore);
   const questionStore = useContext(QuestionsStore);
 
-  const { title, text, close, id, warning, afterSubmit } = props;
+  const { title, text, close, id, warning, afterSubmit, open } = props;
 
   return useObserver(() => {
     const disabled =
@@ -26,7 +26,7 @@ export default props => {
       questionStore.isSubmitting ||
       questionStore.submitted.includes(id);
     return (
-      <Dialog open={true}>
+      <Dialog open={open}>
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
           {warning && (

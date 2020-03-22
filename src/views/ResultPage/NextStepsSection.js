@@ -65,6 +65,7 @@ export default function NextStepsSection() {
                     {requestingTicket && (
                         <TicketRequestDialog
                             {...requestingTicket}
+                            open={true}
                             close={() => requestTicket(false)}
                         />
                     )}

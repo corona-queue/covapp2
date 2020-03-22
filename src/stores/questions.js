@@ -25,6 +25,13 @@ class QuestionTreeStore {
     this.question = parseInt(question);
   }
 
+  reset() {
+    this.anwers  = {};
+    this.submitted = [];
+    this.question = 0;
+    this.results = null;
+  }
+
   get currentQuestion() {
     if (this.questions.length === 0) {
       return null;
@@ -163,6 +170,7 @@ decorate(QuestionTreeStore, {
   results: observable,
   loadingResults: observable,
   currentQuestion: computed,
+  finished: computed,
   openQuestions: computed,
   progress: computed,
   setPage: action,
@@ -171,7 +179,8 @@ decorate(QuestionTreeStore, {
   submitAnswers: action,
   setQuestions: action,
   nextQuestion: action,
-  loadResults: action
+  loadResults: action,
+  reset: action,
 });
 
 export default createContext(new QuestionTreeStore(routerStore));

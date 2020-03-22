@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-
+import { useLocation } from "react-router-dom";
 import { useObserver } from "mobx-react-lite";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -7,6 +7,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Question from "./Question";
 import Final from "./Final";
+import FinalSubmit from "views/CallcenterPage/FinalSubmit";
 
 import QuestionsStore from "../../../stores/questions";
 import styles from "./styles";
@@ -23,9 +24,15 @@ const BorderLinearProgress = withStyles({
 
 const useStyles = makeStyles(styles);
 
-const Test = () => {
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+}
+
+const Test = (props) => {
   const store = useContext(QuestionsStore);
   const classes = useStyles();
+  const query = useQuery();
+  const isCallcenter = query.get("callcenter");
 
   // Disable eslint to show missing store dependency
   /*eslint-disable react-hooks/exhaustive-deps*/
@@ -33,6 +40,8 @@ const Test = () => {
     store.loadQuestions();
   }, []);
   /*eslint-enable react-hooks/exhaustive-deps*/
+
+  const FinalComp = (isCallcenter) ? FinalSubmit : Final;
 
   return useObserver(() => (
     <div className={classes.root}>
@@ -62,7 +71,8 @@ const Test = () => {
           />
         ))}
 
-      {store.finished && <Final />}
+
+      {store.finished && <FinalComp />}
 
       <div style={{ height: "100vh" }} />
 
