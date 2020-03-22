@@ -9,6 +9,7 @@ class QuestionTreeStore {
   name = "Michael";
   loading = false;
   isSubmitting = false;
+  submitted = [];
   question = 0;
 
   // getting results
@@ -112,12 +113,19 @@ class QuestionTreeStore {
       });
   }
 
-  submitAnswers(contactInformation) {
+  submitAnswers(id, contactInformation) {
     this.isSubmitting = true;
 
     submitAnswers(contactInformation, this.requestBody)
-      .then(success => console.log("Sucessful"))
-      .catch(error => console.error(error));
+      .then(success => {
+        this.isSubmitting = false;
+        this.submitted = [...this.submitted, id];
+        console.log("Sucessful");
+      })
+      .catch(error => {
+        this.isSubmitting = false;
+        console.error(error);
+      });
   }
 }
 

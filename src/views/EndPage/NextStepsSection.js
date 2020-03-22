@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import { useObserver } from "mobx-react-lite";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -18,8 +17,7 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 
 import ContactInformation from "views/components/ContactInformation/ContactInformation";
-import ContactStore from "stores/contact";
-import QuestionsStore from "stores/questions";
+import TicketRequestDialog from "views/components/TicketRequestDialog/TicketRequestDialog";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import endSectionStyles from "./endSectionStyle";
@@ -31,11 +29,17 @@ const useStyles = makeStyles({ ...styles, ...endSectionStyles });
 
 export default function EndSection() {
   const classes = useStyles();
-  const contactStore = useContext(ContactStore);
-  const questionStore = useContext(QuestionsStore);
 
-  return useObserver(() => (
+  const [requestingTicket, requestTicket] = useState(false);
+
+  return (
     <div className={classes.small}>
+      {requestingTicket && (
+        <TicketRequestDialog
+          {...requestingTicket}
+          close={() => requestTicket(false)}
+        />
+      )}
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Wie geht es weiter?</h2>
@@ -74,7 +78,14 @@ export default function EndSection() {
               type="button"
               color="success"
               onClick={() =>
-                questionStore.submitAnswers(contactStore.requestBody)
+                requestTicket({
+                  who: "Gesundheitsamt",
+                  what: "Rückrufservice",
+                  outcome: "Rückruf",
+                  id: 0,
+                  warning:
+                    "Bitte beachte, dass pro Nutzer nur eine Anfrage an das Gesundheitsamt gesendet werden kann."
+                })
               }
             >
               <PhoneCallback /> Rückruf vereinbaren
@@ -93,7 +104,7 @@ export default function EndSection() {
                 Einschätzung von offizieller Seite bekommen hast.
               </b>
             </p>
-            {labs.map(lab => renderLab(lab, classes))}
+            {labs.map(lab => renderLab(lab, requestTicket, classes))}
           </GridItem>
         </GridContainer>
         <GridContainer justify="center">
@@ -118,18 +129,30 @@ export default function EndSection() {
               Nimm Kontakt mit einer allgemeinen Hotline auf, um weitere
               Informationen zu erhalten:
             </p>
-            <p style={{ color: "red" }}>[TODO: Frage stellen in Input]</p>
-            <Button type="button" color="success">
+            <Button
+              type="button"
+              color="success"
+              onClick={() =>
+                requestTicket({
+                  who: "Informations-Hotline",
+                  what: "Rückrufservice",
+                  outcome: "Rückruf",
+                  id: 1,
+                  warning:
+                    "Bitte beachte, dass pro Nutzer nur eine Anfrage an die Informations-Hotline gesendet werden kann."
+                })
+              }
+            >
               <PhoneCallback /> Rückruf vereinbaren
             </Button>
           </GridItem>
         </GridContainer>
       </div>
     </div>
-  ));
+  );
 }
 
-const renderLab = (lab, classes) => {
+const renderLab = (lab, requestTicket, classes) => {
   return (
     <ExpansionPanel>
       <ExpansionPanelSummary expandIcon={<ExpandMore />}>
@@ -145,7 +168,20 @@ const renderLab = (lab, classes) => {
             <b>Öffnungszeiten</b>: {lab.open}
           </div>
           <div>
-            <Button type="button" color="standard">
+            <Button
+              type="button"
+              color="standard"
+              onClick={() =>
+                requestTicket({
+                  who: lab.name,
+                  what: "Terminvereinbarung",
+                  outcome: "Termin",
+                  id: 2,
+                  warning:
+                    "Bitte beachte, dass insgesamt nur eine Terminanfrage pro Nutzer gesendet werden kann."
+                })
+              }
+            >
               <CalendarToday /> Termin anfragen
             </Button>
           </div>

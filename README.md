@@ -18,23 +18,21 @@ Based on [CovApp](https://covapp.charite.de/).
   * Kontakt aufnehmen (REST service, verschiedene Stellen sollten möglich sein)
     * requestBody zusammenbauen (nicht nur mocken)
   * Results und Ticketing testen, wenn CORS eingestellt
-  * Kontaktaufnahme Dialog (Daten reviewen)
-    * Kontaktinforationen anzeigen
-    * Anfrage abschicken nur clickbar, wenn alle Kontaktinformationen ausgefüllt
-    * Loading icon, wenn "Anfrage abschicken" angeklickt
-    * Text, wenn Anfrage eingegangen ist: "Deine Anfrage ist eingegangen.  Aufgrund der hohen Anfrage kann es bis zu zwei Tagen dauern, dass du eine Rückmeldung erhälst."
-    * Erweiterungsmöglichkeit: Scheduling
 
 ## TODOs
+* Erweiterungsmöglichkeit des Kontakt Dialogs: Scheduling
 * Fragen mit Daten rendern
 * Fortschritt bei Fragebogen
+* Daten in Kontaktdialog zum Review anzeigen, die geschickt werden sollen
 * Kontrast erhöhen (hellgrauer kleiner Text)
 * Alles einheitlich stylen (fonts, PageSetup)
 * Aus Header auf start routen
 * Auswertung des Fragebogens > welche Optionen werden danach angezeigt (benötigt Priosisierung)
 * Fehler und Warnings in Konsole beheben
 
-
+# Future Work
+* Define different endpoints for Gesundheitsamt, Hotline, Labor Kalender (currently only one backend, so there is no need for it)
+* Tatsächlich verhindern, dass pro Nutzer nur eine Anfrage pro Typ abgegeben werden kann (bisher kann man einfach neu laden)
 
 
 

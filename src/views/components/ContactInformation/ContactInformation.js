@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useObserver } from "mobx-react-lite";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,27 +13,29 @@ const useStyles = makeStyles({ ...styles });
 export default props => {
   const classes = useStyles();
   const store = useContext(ContactStore);
+  const { showRequired } = props;
+  const postfix = showRequired ? "*" : "";
 
   return useObserver(() => (
-    <Fragment>
+    <div>
       <TextField
         className={classes.input}
-        label={"Vorname"}
+        label={`Vorname${postfix}`}
         value={store.firstname}
         onChange={event => store.setAttribute("firstname", event.target.value)}
       />
       <TextField
         className={classes.input}
-        label={"Nachname"}
+        label={`Nachname${postfix}`}
         value={store.lastname}
         onChange={event => store.setAttribute("lastname", event.target.value)}
       />
       <TextField
         className={classes.input}
-        label={"Telefon"}
+        label={`Telefon${postfix}`}
         value={store.phone}
         onChange={event => store.setAttribute("phone", event.target.value)}
       />
-    </Fragment>
+    </div>
   ));
 };
