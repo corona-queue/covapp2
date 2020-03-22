@@ -112,7 +112,15 @@ class QuestionTreeStore {
 
   loadResults() {
     this.loadingResults = true;
-    getResults(this.answers)
+    let answers = this.openQuestions.reduce(
+      (agg, question) => ({
+        ...agg,
+        [question.id]: this.answers[question.id]
+      }),
+      {}
+    );
+    console.log(this.answers, answers);
+    getResults(answers)
       .then(results => {
         this.results = results;
         this.loadingResults = false;
