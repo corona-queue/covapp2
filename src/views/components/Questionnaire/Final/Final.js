@@ -51,7 +51,7 @@ const Final = ({ onClick }) => {
                       text:
                         "Übermitteln Sie Ihre Antworten an das für Sie zuständige Gesundheitsamt. Geben Sie dazu bitte Ihre Kontaktinformationen an, damit Sie zurückgerufen werden können.",
                       id: 0,
-                      afterSubmit: () => history.push("/result")
+                      afterSubmit: () => history.push("/ticket")
                     })
                   }
                 >

@@ -12,6 +12,7 @@ class QuestionTreeStore {
   submitted = [];
   submitError = false;
   question = 0;
+  ticket = {};
 
   // getting results
   results = null;
@@ -26,7 +27,7 @@ class QuestionTreeStore {
   }
 
   reset() {
-    this.anwers  = {};
+    this.anwers = {};
     this.submitted = [];
     this.question = 0;
     this.results = null;
@@ -60,7 +61,7 @@ class QuestionTreeStore {
     // Reconstruct question path from given answers (see this.openQuestions)
     const validQuestionIds = this.openQuestions.map(question => question.id);
 
-    let answers = {}
+    let answers = {};
     for (let questionId of validQuestionIds) {
       answers[questionId] = this.answers[questionId];
     }
@@ -158,9 +159,10 @@ class QuestionTreeStore {
     this.isSubmitting = true;
 
     submitAnswers(contactInformation, this.filteredAnswers)
-      .then(success => {
+      .then(ticket => {
         this.isSubmitting = false;
         this.submitted = [...this.submitted, id];
+        this.ticket = ticket;
         afterSubmit();
       })
       .catch(error => {
@@ -181,6 +183,7 @@ decorate(QuestionTreeStore, {
   submitError: observable,
   results: observable,
   loadingResults: observable,
+  ticket: observable,
   currentQuestion: computed,
   filteredAnswers: computed,
   finished: computed,
@@ -193,7 +196,7 @@ decorate(QuestionTreeStore, {
   setQuestions: action,
   nextQuestion: action,
   loadResults: action,
-  reset: action,
+  reset: action
 });
 
 export default createContext(new QuestionTreeStore(routerStore));
