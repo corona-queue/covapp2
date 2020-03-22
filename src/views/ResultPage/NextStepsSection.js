@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -24,15 +24,12 @@ import ResultSection from "./ResultSection";
 
 import ContactInformation from "views/components/ContactInformation/ContactInformation";
 import TicketRequestDialog from "views/components/TicketRequestDialog/TicketRequestDialog";
-import questions from "data/questionnaire/tree.js"
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import sectionStyles from "./styles";
 
 import labs from "data/labs.js";
 import QRCode from "./QRCode";
-import QuestionsStore from "../../stores/questions";
-import {useObserver} from "mobx-react-lite";
 
 const useStyles = makeStyles({ ...styles, ...sectionStyles });
 
@@ -40,8 +37,6 @@ export default function NextStepsSection() {
     const classes = useStyles();
 
     const [requestingTicket, requestTicket] = useState(false);
-
-    const store = useContext(QuestionsStore);
 
     const {text, risk} = {
         text: "Sie gehören zu einer hohen Risikogruppe",
@@ -58,153 +53,127 @@ export default function NextStepsSection() {
         LOW: "info"
     }[risk];
 
-    function resovleAnswerToXml(qid, answer) {
-        for (let question of Object.values(questions)) {
-            if (question.id === qid) {
-                if (question.options) {
-                    for (let idx = 0; idx < question.options.length; idx++) {
-                        if (question.options[idx] === answer) return [question.xmlCode, idx + 1];
-                    }
-                } else {
-                    return [question.xmlCode, answer];
-                }
-            }
-        }
-        return [qid, answer];
-    }
+    return (
+        <div style={{overflow: "hidden"}}>
+            <SnackbarContent
+                message={<span>{text}</span>}
+                color={color}
+                icon={icon}
+            />
+            <GridContainer justify="center">
+                <GridItem xs={12} sm={12} md={8}>
+                    {requestingTicket && (
+                        <TicketRequestDialog
+                            {...requestingTicket}
+                            close={() => requestTicket(false)}
+                        />
+                    )}
 
-    function reduceAnswersToXml(string, answerID) {
-        const [questionXmlCode, answerXmlCode] = resovleAnswerToXml(answerID, store.answers[answerID]);
-        return string + "<" + questionXmlCode + ">" + answerXmlCode + "</" + questionXmlCode + ">";
-    }
-
-    return useObserver(() => {
-        const qrCodeString = "<PATIENT>" + Object.keys(store.answers).reduce(reduceAnswersToXml, "") + "</PATIENT>";
-        console.log(qrCodeString);
-
-        return (
-            <div style={{overflow: "hidden"}}>
-                <SnackbarContent
-                    message={<span>{text}</span>}
-                    color={color}
-                    icon={icon}
-                />
-                <GridContainer justify="center">
-                    <GridItem xs={12} sm={12} md={8}>
-                        {requestingTicket && (
-                            <TicketRequestDialog
-                                {...requestingTicket}
-                                close={() => requestTicket(false)}
-                            />
-                        )}
-
-                        <h2 className={classes.title}>Wie geht es weiter?</h2>
-                        <ResultSection/>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={8}>
-                        <Card>
-                            <CardHeader color="primary" className={classes.cardHeader}>
-                                <h3>Informationen weiterleiten</h3>
-                            </CardHeader>
-                            <CardBody>
-                                <p className={classes.description}>
-                                    Gib deine Kontaktinforationen für den Rückrufservice an.
-                                    Außerdem sind diese Informationen teil der Daten, die du an ein
-                                    Labor übertragen kannst, um einen reibungslosen Testablauf zu
-                                    ermöglichen.
-                                </p>
-                                <ContactInformation/>
-                                <h5 className={classes.title}>
-                                    Um dich testen zu lassen, musst du dich bei deinem Arzt oder dem
-                                    Gesundheitsamt melden.
-                                </h5>
-                                <p className={classes.description}>
-                                    Wir leiten deine Informationen an das zuständige Gesundheitsamt
-                                    weiter, sie werden dich zurückrufen.
-                                </p>
-                                <Button
-                                    type="button"
-                                    color="success"
-                                    onClick={() =>
-                                        requestTicket({
-                                            who: "Gesundheitsamt",
-                                            what: "Rückrufservice",
-                                            outcome: "Rückruf",
-                                            id: 0,
-                                            warning:
-                                                "Bitte beachte, dass pro Nutzer nur eine Anfrage an das Gesundheitsamt gesendet werden kann."
-                                        })
-                                    }
-                                >
-                                    <PhoneCallback/> Rückruf vereinbaren
-                                </Button>
-                            </CardBody>
-                        </Card>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={8}>
-                        <Card>
-                            <CardHeader color="primary" className={classes.cardHeader}>
-                                <h3>Zusammenfassung</h3>
-                            </CardHeader>
-                            <CardBody>
-                                <p className={classes.description}>
-                                    Wenn du zum Test an ein Labor vermittelt wurdest, kannst du
-                                    deine Daten mitbringen und direkt mit dem folgenden QR Code
-                                    auslesen lassen. Mach dir am besten einen Screenshot.
-                                </p>
-
-                                <QRCode size={400} value={qrCodeString}/>
-                            </CardBody>
-                        </Card>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={8}>
-                        <Card noHeader={true}>
-                            <CardBody>
-                                <h3 className={classes.title}>Wer führt Tests durch?</h3>
-                                <p className={classes.description}>
-                                    Wenn du von deinem Arzt oder offiziellen Stellen an kein
-                                    bestimmtes Labor vermittelt wurdest, findest du hier eine Liste
-                                    von Teststätten, bei denen du einen Termin anfragen kannst.{" "}
-                                    <b>
-                                        Vereinbare nur einen Termin, wenn du eine entsprechende
-                                        Einschätzung von offizieller Seite bekommen hast.
-                                    </b>
-                                </p>
-                                {labs.map(lab => renderLab(lab, requestTicket, classes))}
-                            </CardBody>
-                        </Card>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={8}>
-                        <Card noHeader={true}>
-                            <CardBody>
-                                <h3 className={classes.title}>Du hast noch weitere Fragen?</h3>
-                                <p className={classes.description}>
-                                    Nimm Kontakt mit einer allgemeinen Hotline auf, um weitere
-                                    Informationen zu erhalten:
-                                </p>
-                                <Button
-                                    type="button"
-                                    color="success"
-                                    onClick={() =>
-                                        requestTicket({
-                                            who: "Informations-Hotline",
-                                            what: "Rückrufservice",
-                                            outcome: "Rückruf",
-                                            id: 1,
-                                            warning:
-                                                "Bitte beachte, dass pro Nutzer nur eine Anfrage an die Informations-Hotline gesendet werden kann."
-                                        })
-                                    }
-                                >
-                                    <PhoneCallback/> Rückruf vereinbaren
-                                </Button>
-                            </CardBody>
-                        </Card>
-                    </GridItem>
-                </GridContainer>
-            </div>
-        );
-    });
+                    <h2 className={classes.title}>Wie geht es weiter?</h2>
+                    <ResultSection/>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={8}>
+                    <Card>
+                        <CardHeader color="primary" className={classes.cardHeader}>
+                            <h3>Informationen weiterleiten</h3>
+                        </CardHeader>
+                        <CardBody>
+                            <p className={classes.description}>
+                                Gib deine Kontaktinforationen für den Rückrufservice an.
+                                Außerdem sind diese Informationen teil der Daten, die du an ein
+                                Labor übertragen kannst, um einen reibungslosen Testablauf zu
+                                ermöglichen.
+                            </p>
+                            <ContactInformation/>
+                            <h5 className={classes.title}>
+                                Um dich testen zu lassen, musst du dich bei deinem Arzt oder dem
+                                Gesundheitsamt melden.
+                            </h5>
+                            <p className={classes.description}>
+                                Wir leiten deine Informationen an das zuständige Gesundheitsamt
+                                weiter, sie werden dich zurückrufen.
+                            </p>
+                            <Button
+                                type="button"
+                                color="success"
+                                onClick={() =>
+                                    requestTicket({
+                                        who: "Gesundheitsamt",
+                                        what: "Rückrufservice",
+                                        outcome: "Rückruf",
+                                        id: 0,
+                                        warning:
+                                            "Bitte beachte, dass pro Nutzer nur eine Anfrage an das Gesundheitsamt gesendet werden kann."
+                                    })
+                                }
+                            >
+                                <PhoneCallback/> Rückruf vereinbaren
+                            </Button>
+                        </CardBody>
+                    </Card>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={8}>
+                    <Card>
+                        <CardHeader color="primary" className={classes.cardHeader}>
+                            <h3>Zusammenfassung</h3>
+                        </CardHeader>
+                        <CardBody>
+                            <p className={classes.description}>
+                                Wenn du zum Test an ein Labor vermittelt wurdest, kannst du
+                                deine Daten mitbringen und direkt mit dem folgenden QR Code
+                                auslesen lassen. Mach dir am besten einen Screenshot.
+                            </p>
+                            <QRCode/>
+                        </CardBody>
+                    </Card>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={8}>
+                    <Card noHeader={true}>
+                        <CardBody>
+                            <h3 className={classes.title}>Wer führt Tests durch?</h3>
+                            <p className={classes.description}>
+                                Wenn du von deinem Arzt oder offiziellen Stellen an kein
+                                bestimmtes Labor vermittelt wurdest, findest du hier eine Liste
+                                von Teststätten, bei denen du einen Termin anfragen kannst.{" "}
+                                <b>
+                                    Vereinbare nur einen Termin, wenn du eine entsprechende
+                                    Einschätzung von offizieller Seite bekommen hast.
+                                </b>
+                            </p>
+                            {labs.map(lab => renderLab(lab, requestTicket, classes))}
+                        </CardBody>
+                    </Card>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={8}>
+                    <Card noHeader={true}>
+                        <CardBody>
+                            <h3 className={classes.title}>Du hast noch weitere Fragen?</h3>
+                            <p className={classes.description}>
+                                Nimm Kontakt mit einer allgemeinen Hotline auf, um weitere
+                                Informationen zu erhalten:
+                            </p>
+                            <Button
+                                type="button"
+                                color="success"
+                                onClick={() =>
+                                    requestTicket({
+                                        who: "Informations-Hotline",
+                                        what: "Rückrufservice",
+                                        outcome: "Rückruf",
+                                        id: 1,
+                                        warning:
+                                            "Bitte beachte, dass pro Nutzer nur eine Anfrage an die Informations-Hotline gesendet werden kann."
+                                    })
+                                }
+                            >
+                                <PhoneCallback/> Rückruf vereinbaren
+                            </Button>
+                        </CardBody>
+                    </Card>
+                </GridItem>
+            </GridContainer>
+        </div>
+    );
 }
 
 const renderLab = (lab, requestTicket, classes) => {
