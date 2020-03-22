@@ -1,4 +1,4 @@
-# CovApp2
+# CoronaQueue
 
 Based on [CovApp](https://covapp.charite.de/).
 
