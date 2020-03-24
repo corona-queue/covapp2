@@ -23,6 +23,22 @@ export default function ProductSection() {
 
   return (
     <div className={classes.section}>
+		<GridContainer justify="center">
+			<GridItem xs={12} sm={12} md={8}>
+				<h2 className={classes.title}>Über Coronaqueue</h2>
+				<h5 className={classes.description}>
+					Schön, dass du hier bist!
+					Unser Projekt ist im Rahmen des <a href="https://wirvsvirushackathon.org/" target="_blank">WirVsVirus</a>-Hackathons entstanden.<br/>
+					Dies ist unsere Demo-Instanz, hier kannst du Coronaqueue ausprobieren.
+				</h5>
+				<h4 className={classes.description}>
+					<b>Momentan suchen wir interessierte Anwender und Unterstützer für Coronaqueue!</b><br/>
+					Weitere Informationen bekommst du über <a href="https://devpost.com/software/1_020_triaging-itsm" target="_blank">Devpost</a>,
+					unseren <a href="https://www.youtube.com/watch?v=8T4jVh1FhDo" target="_blank">YouTube-Pitch</a>,
+					oder über <a href="https://github.com/corona-queue" target="_blank">GitHub</a>.
+				</h4>
+			</GridItem>
+		</GridContainer>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Wie es funktioniert</h2>
