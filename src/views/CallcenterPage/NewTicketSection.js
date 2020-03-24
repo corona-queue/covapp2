@@ -40,7 +40,7 @@ export default function NextStepsSection() {
                             </p>
                             <ContactInformation/>
                             <p className={classes.description}>
-                                Wir leiten die Informationen an das zuständige Gesundheitsamt
+                                Wir leiten die Informationen an die zuständige Gesundheitsbehörde
                                 weiter, sie werden die Kontaktperson zurückrufen.
                             </p>
                             <Button

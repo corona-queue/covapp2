@@ -24,7 +24,7 @@ const Ticket = props => {
       ticket.priority === 1 || ticket.priority === 2 ? (
         "Bitte beachte, dass zur Zeit viele Anfragen eingehen und längere Wartezeiten entstehen können."
       ) : (
-        "Das Gesundheitsamt wird sich schnellstmöglich bei dir melden."
+        "Die Gesundheitsbehörde wird sich schnellstmöglich bei dir melden."
       )
     ) : (
       <span onClick={() => history.push("/")}>

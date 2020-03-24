@@ -22,7 +22,7 @@ export default function Warning() {
     >
       <WarningIcon style={{ margin: "4px" }} />
       <div>
-        <b>Testinstallation: </b>Anfragen werden nicht ans Gesundheitsamt
+        <b>Testinstallation: </b>Anfragen werden nicht an Gesundheitsbehörden
         weitergeleitet.
       </div>
     </div>

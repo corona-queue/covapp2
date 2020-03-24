@@ -47,9 +47,9 @@ const Final = ({ onClick }) => {
                   color="default"
                   onClick={() =>
                     requestTicket({
-                      title: "Einen Rückruf mit dem Gesundheitsamt vereinbaren",
+                      title: "Einen Rückruf mit der Gesundheitsbehörde vereinbaren",
                       text:
-                        "Übermitteln Sie Ihre Antworten an das für Sie zuständige Gesundheitsamt. Geben Sie dazu bitte Ihre Kontaktinformationen an, damit Sie zurückgerufen werden können.",
+                        "Übermitteln Sie Ihre Antworten an die für Sie zuständige Gesundheitsbehörde. Geben Sie dazu bitte Ihre Kontaktinformationen an, damit Sie zurückgerufen werden können.",
                       id: 0,
                       afterSubmit: () => history.push("/ticket")
                     })

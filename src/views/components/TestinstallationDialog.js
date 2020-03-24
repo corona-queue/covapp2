@@ -16,23 +16,23 @@ export default props => {
     return (
       <Dialog open={!store.noticeTaken}>
         <DialogTitle>
-          Anfragen werden nicht ans Gesundheitsamt weitergeleitet
+          Anfragen werden nicht an Gesundheitsbehörden weitergeleitet
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
             Bitte beachte, dass dies nur eine <b>Testinstallation</b> zu
             Demonstrationszwecken ist.
             <br />
-            <br /> Deine Anfragen werden zwar an ein{" "}
+            <br /> Deine Anfragen werden zwar testweise an ein{" "}
             <a href="https://zammad.coronaqueue.de/" target="_blank">
               Ticket-System
             </a>{" "}
-            weitergeleitet, aber das Gesundheitsamt greift nicht darauf zu.
+            weitergeleitet, aber die Gesundheitsbehörden greifen nicht darauf zu.
             <br />
             <br />{" "}
             <b>
-              Wenn du einen Test durchführen möchtest, kontaktiere bitte das für
-              dich zuständige Gesundheitsamt telefonisch.
+              Wenn du einen Test durchführen möchtest, kontaktiere bitte die für
+              dich zuständigen Gesundheitsbehörden telefonisch.
             </b>
           </DialogContentText>
         </DialogContent>

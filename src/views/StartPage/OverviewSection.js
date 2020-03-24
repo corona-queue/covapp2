@@ -52,7 +52,7 @@ export default function ProductSection() {
           <GridItem xs={10} sm={10} md={4}>
             <InfoArea
               title="1. Beantworte einen Fragebogen"
-              description="Mit deinen Antworten hilfst du dem Gesundheitsamt dabei, deine Situation einzuschätzen."
+              description="Mit deinen Antworten hilfst du der Gesundheitsbehörde dabei, deine Situation einzuschätzen."
               icon={Chat}
               iconColor="info"
               vertical
@@ -61,7 +61,7 @@ export default function ProductSection() {
           <GridItem xs={10} sm={10} md={4}>
             <InfoArea
               title="2. Nutze unseren Rückruf-Service"
-              description="Übermittle die Informationen aus dem Fragebogen an das zuständige Gesundheitsamt und lass dich zurückrufen."
+              description="Übermittle die Informationen aus dem Fragebogen an die zuständige Gesundheitsbehörde und lass dich zurückrufen."
               icon={PhoneCallback}
               iconColor="rose"
               vertical

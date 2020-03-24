@@ -87,11 +87,11 @@ export default function NextStepsSection() {
               </p>
               <ContactInformation />
               <h5 className={classes.title}>
-                Um dich testen zu lassen, musst du dich bei deinem Arzt oder dem
-                Gesundheitsamt melden.
+                Um dich testen zu lassen, musst du dich bei deinem Arzt oder der
+                Gesundheitsbehörde melden.
               </h5>
               <p className={classes.description}>
-                Wir leiten deine Informationen an das zuständige Gesundheitsamt
+                Wir leiten deine Informationen an die zuständige Gesundheitsbehörde
                 weiter, sie werden dich zurückrufen.
               </p>
               <Button
@@ -99,12 +99,12 @@ export default function NextStepsSection() {
                 color="success"
                 onClick={() =>
                   requestTicket({
-                    who: "Gesundheitsamt",
+                    who: "Gesundheitsbehörde",
                     what: "Rückrufservice",
                     outcome: "Rückruf",
                     id: 0,
                     warning:
-                      "Bitte beachte, dass pro Nutzer nur eine Anfrage an das Gesundheitsamt gesendet werden kann."
+                      "Bitte beachte, dass pro Nutzer nur eine Anfrage an die Gesundheitsbehörde gesendet werden kann."
                   })
                 }
               >
