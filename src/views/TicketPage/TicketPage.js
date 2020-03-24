@@ -18,36 +18,44 @@ const Ticket = props => {
   const history = useHistory();
 
   return useObserver(() => {
-    // For testing!
-    const ticket = Object.keys(store.ticket).length
-      ? store.ticket
-      : {
-          id: 211,
-          priority: 1,
-          med_prio: 0,
-          tags: ["Information"]
-        };
-    const text =
-      ticket.priority === 1 || ticket.priority === 2
-        ? "Bitte beachte, dass zur Zeit viele Anfragen eingehen und längere Wartezeiten entstehen können."
-        : "Das Gesundheitsamt wird sich schnellstmöglich bei dir melden.";
+    const ticket = store.ticket;
+    const ticketPresent = !(typeof ticket.priority === "undefined");
+    const text = ticketPresent ? (
+      ticket.priority === 1 || ticket.priority === 2 ? (
+        "Bitte beachte, dass zur Zeit viele Anfragen eingehen und längere Wartezeiten entstehen können."
+      ) : (
+        "Das Gesundheitsamt wird sich schnellstmöglich bei dir melden."
+      )
+    ) : (
+      <span onClick={() => history.push("/")}>
+        Du hast noch keine Anfrage gesendet. Starte bitte von{" "}
+        <span style={{ color: "rgb(233, 30, 99)", cursor: "pointer" }}>
+          unserer Startseite
+        </span>
+      </span>
+    );
     return (
       <div className={classes.small}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Deine Anfrage wurde übermittelt</h2>
-            <h5 className={classes.description}>{text}</h5>
-            <h5
-              className={classes.description}
-              style={{ paddingTop: "32px" }}
-              onClick={() => history.push("/labs")}
-            >
-              Und wie geht es nun weiter? Bereite dich{" "}
-              <span style={{ color: "rgb(233, 30, 99)", cursor: "pointer" }}>
-                hier
-              </span>{" "}
-              auf deinen Test vor.
-            </h5>
+            {!ticketPresent && <h2 className={classes.title}>{text}</h2>}
+            {ticketPresent && (
+              <h2 className={classes.title}>Deine Anfrage wurde übermittelt</h2>
+            )}
+            {ticketPresent && <h5 className={classes.description}>{text}</h5>}
+            {ticketPresent && (
+              <h5
+                className={classes.description}
+                style={{ paddingTop: "32px" }}
+                onClick={() => history.push("/labs")}
+              >
+                Und wie geht es nun weiter? Bereite dich{" "}
+                <span style={{ color: "rgb(233, 30, 99)", cursor: "pointer" }}>
+                  hier
+                </span>{" "}
+                auf deinen Test vor.
+              </h5>
+            )}
           </GridItem>
         </GridContainer>
       </div>
