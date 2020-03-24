@@ -48,8 +48,7 @@ export default props => {
                 <b style={{ color: "darkred" }}>
                   Es ist ein Fehler aufgetreten.
                 </b>{" "}
-                Versuche es bitte erneut oder setze dich mit unserem Support in
-                Verbindung.
+                Lass die Seite geöffnet und versuche es bitte später erneut.
               </span>
             ) : (
               ""
