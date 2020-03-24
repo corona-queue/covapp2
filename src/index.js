@@ -13,7 +13,10 @@ import QuestionnairePage from "views/QuestionnairePage/QuestionnairePage.js";
 import TicketPage from "views/TicketPage/TicketPage.js";
 import LabsPage from "views/LabsPage/LabsPage.js";
 import CallcenterPage from "views/CallcenterPage/CallcenterPage.js";
+
+// other components
 import Warning from "./Warning";
+import TestinstallationDialog from "views/components/TestinstallationDialog";
 
 const history = createBrowserHistory();
 
@@ -27,6 +30,7 @@ ReactDOM.render(
       <Route path="/test" component={QuestionnairePage} />
       <Route path="/" component={StartPage} />
     </Switch>
+    <TestinstallationDialog />
     <Warning />
   </Router>,
   document.getElementById("root")
