@@ -37,6 +37,7 @@ export default function ProductSection() {
 					unseren <a href="https://www.youtube.com/watch?v=8T4jVh1FhDo" target="_blank">YouTube-Pitch</a>,
 					oder über <a href="https://github.com/corona-queue" target="_blank">GitHub</a>.
 				</h4>
+				<h4>Hast du Interesse? <a href="mailto:info@coronaqueue.de">Kontaktiere uns!</a></h4>
 			</GridItem>
 		</GridContainer>
       <GridContainer justify="center">
